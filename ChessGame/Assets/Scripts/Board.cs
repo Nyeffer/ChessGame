@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class Board : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+	// Public Varaibles
+	public GameObject[] col;
+	public int[] tilesID;
+	// Private Variables
+
+	void Start() {
+		Destroy(col[tilesID[0]].GetComponent<Column>().Tiles(tilesID[1]));
 	}
 }
