@@ -24,4 +24,8 @@ public class Tile : MonoBehaviour {
 		return isOccupied;
 	}
 
+	public void SetState(bool newVal) {
+		isOccupied = newVal;
+	}
+
 }
