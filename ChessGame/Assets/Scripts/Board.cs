@@ -10,6 +10,10 @@ public class Board : MonoBehaviour {
 	// Private Variables
 
 	void Start() {
-		Destroy(col[tilesID[0]].GetComponent<Column>().Tiles(tilesID[1]));
+		// Destroy(col[tilesID[0]].GetComponent<Column>().Tiles(tilesID[1]));
+	}
+
+	public GameObject GetColumn(int ColID) {
+		return col[ColID];
 	}
 }
