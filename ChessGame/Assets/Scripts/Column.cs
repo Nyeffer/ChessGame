@@ -6,6 +6,7 @@ public class Column : MonoBehaviour {
 
 	// Public Variables 
 	public GameObject[] tiles;
+	
 	// Private Variables
 	private Vector3[] pos;
 
