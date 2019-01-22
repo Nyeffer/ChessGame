@@ -27,23 +27,28 @@ public class Piece : MonoBehaviour {
 	// 1 = Comfirm
 	// 2 = Move
 	// 3 = Fight
-	void Start() {
+	void Awake() {
 		MyPos = new int[2];
 		MyPos[0] = initCol;
 		MyPos[1] = initRow;
 	}
 
-	void Update() {
+	void Start() {
 		
 	}
 
-	void Move() {
-		gameObject.transform.position = new Vector3(board.GetColumn(MyPos[0]).GetComponent<Column>().GetTile(MyPos[1]).x,
-													gameObject.transform.position.y,
-													board.GetColumn(MyPos[0]).GetComponent<Column>().GetTile(MyPos[1]).z);
+	void Update() {
+		Move(new Vector3(board.GetColumn(MyPos[0]).GetComponent<Column>().GetTile(MyPos[1]).x, 
+						gameObject.transform.position.y, 
+						board.GetColumn(MyPos[0]).GetComponent<Column>().GetTile(MyPos[1]).z));
+	}
+
+	void Move(Vector3 newVal) {
+		gameObject.transform.position = new Vector3(newVal.x, gameObject.transform.position.y, newVal.z);
 	}
 
 	void OnMouseDown() {
+		GetType(pieceType);
 		GetState(state);
 	}
 
@@ -73,7 +78,8 @@ public class Piece : MonoBehaviour {
 				// Pawn it's Moves
 				if(isWhite) {
 					if(firstMove) {
-						board.GetColumn(MyPos[0] + 1).GetComponent<>;
+						board.GetColumn(MyPos[0]).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().ChangeColor(1);
+						board.GetColumn(MyPos[0]).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().ChangeColor(1);
 					}
 				}
 			break;

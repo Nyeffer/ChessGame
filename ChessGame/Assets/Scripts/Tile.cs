@@ -16,7 +16,7 @@ public class Tile : MonoBehaviour {
 		color[0] = GetComponent<Renderer>().material;
 	}
 
-	void ChangeColor(int state) {
+	public void ChangeColor(int state) {
 		GetComponent<Renderer>().material = color[state];
 	}
 
