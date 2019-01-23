@@ -35,6 +35,10 @@ public class Tile : MonoBehaviour {
 			selectPiece = board.GetSelectedPiece();
 			SetDesiredV3(new Vector3(gameObject.transform.position.x, selectPiece.transform.position.y, gameObject.transform.position.z));
 			board.SelectTile(this.gameObject);
+			if(selectPiece.GetComponent<Piece>().GetisFirst()) {
+				selectPiece.GetComponent<Piece>().SetisFirst(false);
+			}
+			selectPiece.GetComponent<Piece>().SetID(colID, rowID);
 			board.ChangeState(2);
 		}
 	}

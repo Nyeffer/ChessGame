@@ -27,10 +27,14 @@ public class Column : MonoBehaviour {
 		return tile;
 	}
 
-	
+
 
 	public GameObject Tiles(int tileID) {
-		return tiles[tileID];
+		if(tileID > -1 && tileID < tiles.Length) {
+			return tiles[tileID];
+		} else {
+			return null;
+		}
 	}
 
 

@@ -273,7 +273,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
   rowID: 0
-  colID: 0
+  colID: 1
   isOccupied: 0
 --- !u!1 &91414339
 GameObject:
@@ -434,8 +434,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
-  colID: 0
+  rowID: 6
+  colID: 7
   isOccupied: 0
 --- !u!1 &170076733
 GameObject:
@@ -606,7 +606,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
   rowID: 0
-  colID: 0
+  colID: 3
   isOccupied: 0
 --- !u!1 &234452209
 GameObject:
@@ -710,8 +710,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
-  colID: 0
+  rowID: 1
+  colID: 4
   isOccupied: 0
 --- !u!1 &267778593
 GameObject:
@@ -815,7 +815,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
+  rowID: 4
   colID: 0
   isOccupied: 0
 --- !u!1 &299410897
@@ -920,8 +920,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
-  colID: 0
+  rowID: 4
+  colID: 3
   isOccupied: 0
 --- !u!1 &302143387
 GameObject:
@@ -1025,8 +1025,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
-  colID: 0
+  rowID: 2
+  colID: 3
   isOccupied: 0
 --- !u!1 &382560841
 GameObject:
@@ -1188,7 +1188,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
   rowID: 0
-  colID: 0
+  colID: 7
   isOccupied: 0
 --- !u!1 &392774741
 GameObject:
@@ -1292,8 +1292,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
-  colID: 0
+  rowID: 6
+  colID: 3
   isOccupied: 0
 --- !u!1 &408822056
 GameObject:
@@ -1454,8 +1454,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
-  colID: 0
+  rowID: 1
+  colID: 5
   isOccupied: 0
 --- !u!1 &459099696
 GameObject:
@@ -1559,8 +1559,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
-  colID: 0
+  rowID: 7
+  colID: 5
   isOccupied: 0
 --- !u!1 &498315837
 GameObject:
@@ -1664,7 +1664,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
+  rowID: 5
   colID: 0
   isOccupied: 0
 --- !u!1 &534669902
@@ -1846,8 +1846,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
-  colID: 0
+  rowID: 5
+  colID: 2
   isOccupied: 0
 --- !u!1 &548992463
 GameObject:
@@ -1951,7 +1951,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
+  rowID: 1
   colID: 0
   isOccupied: 0
 --- !u!1 &570815243
@@ -2056,8 +2056,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
-  colID: 0
+  rowID: 2
+  colID: 6
   isOccupied: 0
 --- !u!1 &577133468
 GameObject:
@@ -2161,8 +2161,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
-  colID: 0
+  rowID: 5
+  colID: 7
   isOccupied: 0
 --- !u!1 &645186686
 GameObject:
@@ -2266,8 +2266,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
-  colID: 0
+  rowID: 2
+  colID: 1
   isOccupied: 0
 --- !u!1 &647259198
 GameObject:
@@ -2371,8 +2371,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
-  colID: 0
+  rowID: 4
+  colID: 2
   isOccupied: 0
 --- !u!1 &673069519
 GameObject:
@@ -2476,8 +2476,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
-  colID: 0
+  rowID: 7
+  colID: 4
   isOccupied: 0
 --- !u!1 &713354607
 GameObject:
@@ -2581,8 +2581,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
-  colID: 0
+  rowID: 6
+  colID: 4
   isOccupied: 0
 --- !u!1 &758053068
 GameObject:
@@ -2686,8 +2686,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
-  colID: 0
+  rowID: 6
+  colID: 1
   isOccupied: 0
 --- !u!1 &793661026
 GameObject:
@@ -2791,8 +2791,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
-  colID: 0
+  rowID: 4
+  colID: 5
   isOccupied: 0
 --- !u!1 &796947295
 GameObject:
@@ -2896,8 +2896,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
-  colID: 0
+  rowID: 2
+  colID: 5
   isOccupied: 0
 --- !u!1 &842558299
 GameObject:
@@ -3001,8 +3001,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
-  colID: 0
+  rowID: 6
+  colID: 5
   isOccupied: 0
 --- !u!1 &877984911
 GameObject:
@@ -3163,8 +3163,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
-  colID: 0
+  rowID: 4
+  colID: 4
   isOccupied: 0
 --- !u!1 &926687350
 GameObject:
@@ -3268,8 +3268,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
-  colID: 0
+  rowID: 4
+  colID: 7
   isOccupied: 0
 --- !u!1 &1021419834
 GameObject:
@@ -3430,8 +3430,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
-  colID: 0
+  rowID: 7
+  colID: 6
   isOccupied: 0
 --- !u!1 &1102622258
 GameObject:
@@ -3535,8 +3535,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
-  colID: 0
+  rowID: 1
+  colID: 7
   isOccupied: 0
 --- !u!1 &1152401193
 GameObject:
@@ -3640,8 +3640,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
-  colID: 0
+  rowID: 5
+  colID: 1
   isOccupied: 0
 --- !u!1 &1161860842
 GameObject:
@@ -3745,8 +3745,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
-  colID: 0
+  rowID: 6
+  colID: 6
   isOccupied: 0
 --- !u!1 &1196294999
 GameObject:
@@ -3910,7 +3910,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
   rowID: 0
-  colID: 0
+  colID: 5
   isOccupied: 0
 --- !u!1 &1239045484
 GameObject:
@@ -4014,8 +4014,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
-  colID: 0
+  rowID: 4
+  colID: 6
   isOccupied: 0
 --- !u!1 &1252547739
 GameObject:
@@ -4119,8 +4119,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
-  colID: 0
+  rowID: 7
+  colID: 1
   isOccupied: 0
 --- !u!1 &1302772782
 GameObject:
@@ -4281,8 +4281,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
-  colID: 0
+  rowID: 3
+  colID: 3
   isOccupied: 0
 --- !u!1 &1331589930
 GameObject:
@@ -4386,7 +4386,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
+  rowID: 3
   colID: 0
   isOccupied: 0
 --- !u!1 &1337203350
@@ -4492,7 +4492,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
   rowID: 0
-  colID: 0
+  colID: 4
   isOccupied: 0
 --- !u!1 &1360180535
 GameObject:
@@ -4596,8 +4596,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
-  colID: 0
+  rowID: 2
+  colID: 7
   isOccupied: 0
 --- !u!1 &1361471965
 GameObject:
@@ -4701,8 +4701,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
-  colID: 0
+  rowID: 3
+  colID: 2
   isOccupied: 0
 --- !u!1 &1366420598
 GameObject:
@@ -4806,8 +4806,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
-  colID: 0
+  rowID: 7
+  colID: 3
   isOccupied: 0
 --- !u!1 &1378679116
 GameObject:
@@ -4911,8 +4911,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
-  colID: 0
+  rowID: 5
+  colID: 5
   isOccupied: 0
 --- !u!1 &1399731407
 GameObject:
@@ -5016,8 +5016,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
-  colID: 0
+  rowID: 1
+  colID: 2
   isOccupied: 0
 --- !u!1 &1457032511
 GameObject:
@@ -5121,8 +5121,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
-  colID: 0
+  rowID: 3
+  colID: 7
   isOccupied: 0
 --- !u!1 &1457397512
 GameObject:
@@ -5227,7 +5227,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
   rowID: 0
-  colID: 0
+  colID: 2
   isOccupied: 0
 --- !u!1 &1514213792
 GameObject:
@@ -5331,8 +5331,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
-  colID: 0
+  rowID: 5
+  colID: 6
   isOccupied: 0
 --- !u!1 &1518983088
 GameObject:
@@ -5436,7 +5436,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
+  rowID: 2
   colID: 0
   isOccupied: 1
 --- !u!1 &1578350965
@@ -5541,8 +5541,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
-  colID: 0
+  rowID: 3
+  colID: 5
   isOccupied: 0
 --- !u!1 &1582070771
 GameObject:
@@ -5646,8 +5646,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
-  colID: 0
+  rowID: 1
+  colID: 3
   isOccupied: 0
 --- !u!1 &1598867633
 GameObject:
@@ -5751,8 +5751,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
-  colID: 0
+  rowID: 6
+  colID: 2
   isOccupied: 0
 --- !u!1 &1631489934
 GameObject:
@@ -5856,7 +5856,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
+  rowID: 6
   colID: 0
   isOccupied: 0
 --- !u!1 &1650636013
@@ -5961,8 +5961,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
-  colID: 0
+  rowID: 7
+  colID: 2
   isOccupied: 0
 --- !u!1 &1658620322
 GameObject:
@@ -6123,8 +6123,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
-  colID: 0
+  rowID: 3
+  colID: 6
   isOccupied: 0
 --- !u!1 &1667584109
 GameObject:
@@ -6228,8 +6228,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
-  colID: 0
+  rowID: 2
+  colID: 4
   isOccupied: 0
 --- !u!1 &1677262574
 GameObject:
@@ -6333,8 +6333,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
-  colID: 0
+  rowID: 1
+  colID: 1
   isOccupied: 0
 --- !u!1 &1754675720
 GameObject:
@@ -6438,8 +6438,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
-  colID: 0
+  rowID: 2
+  colID: 2
   isOccupied: 1
 --- !u!1 &1760636544
 GameObject:
@@ -6543,8 +6543,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
-  colID: 0
+  rowID: 7
+  colID: 7
   isOccupied: 0
 --- !u!1 &1802592432
 GameObject:
@@ -6649,7 +6649,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
   rowID: 0
-  colID: 0
+  colID: 6
   isOccupied: 0
 --- !u!1 &1848197771
 GameObject:
@@ -6752,7 +6752,7 @@ MonoBehaviour:
   board: {fileID: 1196295000}
   initCol: 1
   initRow: 1
-  isWhite: 1
+  isWhite: 0
 --- !u!1 &1854355271
 GameObject:
   m_ObjectHideFlags: 0
@@ -6855,8 +6855,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
-  colID: 0
+  rowID: 3
+  colID: 4
   isOccupied: 0
 --- !u!1 &1889217274
 GameObject:
@@ -6960,8 +6960,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
-  colID: 0
+  rowID: 1
+  colID: 6
   isOccupied: 0
 --- !u!1 &1954704685
 GameObject:
@@ -7065,8 +7065,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
-  colID: 0
+  rowID: 4
+  colID: 1
   isOccupied: 0
 --- !u!1 &1957236689
 GameObject:
@@ -7275,8 +7275,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
-  colID: 0
+  rowID: 5
+  colID: 4
   isOccupied: 0
 --- !u!1 &2028375172
 GameObject:
@@ -7380,8 +7380,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
-  colID: 0
+  rowID: 5
+  colID: 3
   isOccupied: 0
 --- !u!1 &2063025030
 GameObject:
@@ -7485,7 +7485,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
+  rowID: 7
   colID: 0
   isOccupied: 0
 --- !u!1 &2085006242
@@ -7590,6 +7590,6 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8033678ac0a4123418b8dc4b2603ec9f, type: 2}
   - {fileID: 2100000, guid: 8c2dc1bcb90dccb44a21bf9f014b2cbd, type: 2}
   board: {fileID: 1196295000}
-  rowID: 0
-  colID: 0
+  rowID: 3
+  colID: 1
   isOccupied: 0

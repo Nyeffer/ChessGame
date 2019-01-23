@@ -26,13 +26,14 @@ public class Board : MonoBehaviour {
 
 	void Update() {
 		if(state == 2) {
-			if(counter <= timeOfAction) {
+			if(counter / timeOfAction <= 1) {
+				Debug.Log(counter / timeOfAction);
 				counter += Time.deltaTime;
 				float disCovered = (Time.time - startTime) * timeOfAction;
 				float fracJourney = disCovered / journeyLength;
 				selectedPiece.transform.position = Vector3.Lerp(selectedPiece.transform.position, 
 																selectedTile.GetComponent<Tile>().GetDesiredV3(), 
-																fracJourney);
+																counter / timeOfAction);
 			} else {
 				selectedTile.GetComponent<Tile>().SetState(true);
 				counter = 0.0f;
