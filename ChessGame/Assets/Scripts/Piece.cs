@@ -51,6 +51,7 @@ public class Piece : MonoBehaviour {
 
 	void OnMouseDown() {
 		board.SelectPiece(this.gameObject);
+		board.SetisMoving(true);
 		GetType(pieceType);
 	}
 

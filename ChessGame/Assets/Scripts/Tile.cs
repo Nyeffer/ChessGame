@@ -24,7 +24,7 @@ public class Tile : MonoBehaviour {
 	}
 
 	void Update() {
-		if(board.GetState() == 0) {
+		if(!board.GetisMoving()) {
 			ChangeColor(0);
 			SetisActive(false);
 		}

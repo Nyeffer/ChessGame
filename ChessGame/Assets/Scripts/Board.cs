@@ -19,6 +19,7 @@ public class Board : MonoBehaviour {
 	private float counter = 0.0f;
 	private float startTime;
 	private float journeyLength;
+	private bool isMoving = false;
 
 	void Start() {
 		// Destroy(col[tilesID[0]].GetComponent<Column>().Tiles(tilesID[1]));
@@ -34,6 +35,7 @@ public class Board : MonoBehaviour {
 				selectedPiece.transform.position = Vector3.Lerp(selectedPiece.transform.position, 
 																selectedTile.GetComponent<Tile>().GetDesiredV3(), 
 																counter / timeOfAction);
+				SetisMoving(false);
 			} else {
 				selectedTile.GetComponent<Tile>().SetState(true);
 				counter = 0.0f;
@@ -48,6 +50,10 @@ public class Board : MonoBehaviour {
 
 	public int GetState() {
 		return state;
+	}
+
+	public bool GetisMoving() {
+		return isMoving;
 	}
 
 	public void ChangeState(int newState) {
@@ -70,6 +76,11 @@ public class Board : MonoBehaviour {
 	public void SelectTile(GameObject v3) {
 		selectedTile = v3;
 	}
+
+	public void SetisMoving(bool newVal) {
+		isMoving = newVal;
+	}
+
 
 	
 
