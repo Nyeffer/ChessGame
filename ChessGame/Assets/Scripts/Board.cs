@@ -44,7 +44,12 @@ public class Board : MonoBehaviour {
 	}
 
 	public GameObject GetColumn(int ColID) {
-		return col[ColID];
+		if(ColID < col.Length && ColID > -1) {
+			return col[ColID];
+		} else {
+			return null;
+		}
+		
 	}
 
 	public int GetState() {

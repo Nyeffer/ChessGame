@@ -17,6 +17,7 @@ public class Tile : MonoBehaviour {
 	// Private Variables 
 	
 	private bool isActive = false;
+	public bool byWhite = false;
 	private GameObject selectPiece;
 	private Vector3 desiredV3;
 	void Start() {
@@ -51,6 +52,10 @@ public class Tile : MonoBehaviour {
 		return isOccupied;
 	}
 
+	public bool GetOccupant() {
+		return byWhite;
+	}
+
 	public bool GetisActive() {
 		return isActive;
 	}
@@ -65,6 +70,10 @@ public class Tile : MonoBehaviour {
 
 	public void SetState(bool newVal) {
 		isOccupied = newVal;
+	}
+
+	public void SetOccupant(bool newVal) {
+		byWhite = newVal;
 	}
 
 	public void SetisActive(bool newVal) {
