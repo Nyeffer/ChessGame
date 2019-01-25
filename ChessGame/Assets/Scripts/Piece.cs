@@ -20,6 +20,7 @@ public class Piece : MonoBehaviour {
 
 	// Private Variables
 	private int[] MyPos;
+	private int[] MyPast;
 	private bool firstMove = true;
 	private Vector3 pos;
 	private int state = 0;
@@ -28,6 +29,9 @@ public class Piece : MonoBehaviour {
 		MyPos = new int[2];
 		MyPos[0] = initCol;
 		MyPos[1] = initRow;
+		MyPast = new int[2];
+		MyPast[0] = initCol;
+		MyPast[1] = initRow;
 	}
 
 	void Start() {
@@ -38,6 +42,14 @@ public class Piece : MonoBehaviour {
 
 	void Update() {
 		state = board.GetState();
+		if(MyPast[0] != MyPos[0] || MyPast[1] != MyPos[1]) {
+			Debug.Log("Here");
+			board.GetColumn(MyPast[0]).GetComponent<Column>().Tiles(MyPast[1]).GetComponent<Tile>().SetState(false);
+			MyPast[0] = MyPos[0];
+			MyPast[1] = MyPos[1];
+		} else {
+			board.GetColumn(MyPos[0]).GetComponent<Column>().Tiles(MyPos[1]).GetComponent<Tile>().SetState(true);
+		}
 	}
 
 	public void Move(Vector3 newVal) {

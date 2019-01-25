@@ -28,7 +28,6 @@ public class Board : MonoBehaviour {
 	void Update() {
 		if(state == 2) {
 			if(counter / timeOfAction <= 1) {
-				Debug.Log(counter / timeOfAction);
 				counter += Time.deltaTime;
 				float disCovered = (Time.time - startTime) * timeOfAction;
 				float fracJourney = disCovered / journeyLength;
