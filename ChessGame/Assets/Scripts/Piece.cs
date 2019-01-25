@@ -35,6 +35,7 @@ public class Piece : MonoBehaviour {
 	}
 
 	void Start() {
+		
 		Move(new Vector3(board.GetColumn(MyPos[0]).GetComponent<Column>().GetTile(MyPos[1]).x, 
 						gameObject.transform.position.y, 
 						board.GetColumn(MyPos[0]).GetComponent<Column>().GetTile(MyPos[1]).z));
@@ -43,7 +44,6 @@ public class Piece : MonoBehaviour {
 	void Update() {
 		state = board.GetState();
 		if(MyPast[0] != MyPos[0] || MyPast[1] != MyPos[1]) {
-			Debug.Log("Here");
 			board.GetColumn(MyPast[0]).GetComponent<Column>().Tiles(MyPast[1]).GetComponent<Tile>().SetState(false);
 			MyPast[0] = MyPos[0];
 			MyPast[1] = MyPos[1];
@@ -174,6 +174,18 @@ public class Piece : MonoBehaviour {
 				}
 			break;
 			case 2:
+				// Knight's Move
+				if(board.GetState() == 0) { // Check if your Neutral
+					board.ChangeState(1); // Change to Move
+					if(board.GetColumn(MyPos[0] + 1).GetComponent<Column>().Tiles(MyPos[1] + 2) != null) {
+						board.GetColumn(MyPos[0] + 1).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().ChangeColor(1);
+						board.GetColumn(MyPos[0] + 1).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().SetisActive(true);
+					}
+					if(board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] + 2) != null) {
+						board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().ChangeColor(1);
+						board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().SetisActive(true);
+					}
+				}
 			break;
 			case 3:
 			break;
