@@ -25,6 +25,8 @@ public class Piece : MonoBehaviour {
 	private Vector3 pos;
 	private int state = 0;
 	private bool canMove = true;
+	private bool[] failSafe;
+	private int failLimit = 0;
 	
 	void Awake() {
 		MyPos = new int[2];
@@ -77,6 +79,8 @@ public class Piece : MonoBehaviour {
 				board.ChangeState(0);
 			}
 		}
+		Debug.Log(canMove);
+		
 	}
 
 	public bool GetisFirst() {
@@ -91,6 +95,21 @@ public class Piece : MonoBehaviour {
 		firstMove = newVal;
 	}
 
+	public void FailCheck(int failsafes, int limit) {
+		int i = 0;
+		if(i < limit) {
+			Debug.Log(limit);
+			for(int j = 0; j < failsafes; ++j) {
+				if(failSafe[j]) {
+					i++;
+					if(i == limit) {
+						canMove = false;
+					}
+				}
+			}
+		}
+	}
+
 	
 
 	void GetType(int myType) {
@@ -102,14 +121,22 @@ public class Piece : MonoBehaviour {
 					board.ChangeState(1); // Change it to Move
 					if(isWhite) { // White Player
 						if(firstMove) { // Pawn could move two tiles forward
+							failSafe = new bool[15];
+							failLimit = 4;
 							// First Move - Movement
 							if(board.GetColumn(MyPos[0]) != null) {
 								if(board.GetColumn(MyPos[0]).GetComponent<Column>().Tiles(MyPos[1] + 1) != null) {
 									if(!board.GetColumn(MyPos[0]).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().GetState()) {
 										board.GetColumn(MyPos[0]).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().ChangeColor(1);
 										board.GetColumn(MyPos[0]).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().SetisActive(true);
+									} else {
+										failSafe[0] = true;
 									}
+								} else {
+									failSafe[1] = true;
 								}
+							} else {
+								failSafe[2] = true;
 							}
 							if(board.GetColumn(MyPos[0]) != null) {
 								if(board.GetColumn(MyPos[0]).GetComponent<Column>().Tiles(MyPos[1] + 2) != null) {
@@ -117,10 +144,18 @@ public class Piece : MonoBehaviour {
 											if(!board.GetColumn(MyPos[0]).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().GetState()) {
 												board.GetColumn(MyPos[0]).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().ChangeColor(1);
 												board.GetColumn(MyPos[0]).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().SetisActive(true); 
+										} else {
+											failSafe[3] = true;
 										}
+									} else {
+										failSafe[4] = true;
 									}
+								} else {
+									failSafe[5] = true;
 								}
-							}
+							} else {
+								failSafe[6] = true;
+							} 
 							// Attack
 							if(board.GetColumn(MyPos[0] + 1) != null) {
 								if(board.GetColumn(MyPos[0] + 1).GetComponent<Column>().Tiles(MyPos[1] + 1) != null) {
@@ -128,29 +163,54 @@ public class Piece : MonoBehaviour {
 										if(board.GetColumn(MyPos[0] + 1).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().GetState()) {
 											board.GetColumn(MyPos[0] + 1).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().ChangeColor(2);
 											board.GetColumn(MyPos[0] + 1).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().SetisActive(true);
+										} else {
+											failSafe[7] = true;
 										}
+									} else {
+										failSafe[8] = true;
 									}
+								} else {
+									failSafe[9] = true;
 								}
-							}
+							} else {
+								failSafe[10] = true;
+							} 
 							if(board.GetColumn(MyPos[0] - 1) != null) {
 								if(board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] + 1) != null) {
 									if(board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().GetOccupant() != isWhite) {
 										if(board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().GetState()) {
 											board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().ChangeColor(2);
 											board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().SetisActive(true);
-										} 
-									} 
-								} 
-							} 
+										}else {
+											failSafe[11] = true;
+										}
+									} else {
+										failSafe[12] = true;
+									}
+								} else {
+									failSafe[13] = true;
+								}
+							} else {
+								failSafe[14] = true;
+							}
+							FailCheck(failSafe.Length, failLimit);  
 						} else {
 							// Non-First Move - Movement
+							failSafe = new bool[11];
+							failLimit = 3;
 							if(board.GetColumn(MyPos[0]) != null) {
 								if(board.GetColumn(MyPos[0]).GetComponent<Column>().Tiles(MyPos[1] + 1) != null) {
 									if(!board.GetColumn(MyPos[0]).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().GetState()) {
 										board.GetColumn(MyPos[0]).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().ChangeColor(1);
 										board.GetColumn(MyPos[0]).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().SetisActive(true);
+									} else {
+										failSafe[0] = true;
 									}
+								} else {
+									failSafe[1] = true;
 								}
+							} else {
+								failSafe[2] = true;
 							}
 							// Attack
 							if(board.GetColumn(MyPos[0] + 1) != null) {
@@ -159,22 +219,37 @@ public class Piece : MonoBehaviour {
 										if(board.GetColumn(MyPos[0] + 1).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().GetState()) {
 											board.GetColumn(MyPos[0] + 1).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().ChangeColor(2);
 											board.GetColumn(MyPos[0] + 1).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().SetisActive(true);
+										}else {
+											failSafe[3] = true;
 										}
+									} else {
+										failSafe[4] = true;
 									}
+								} else {
+									failSafe[5] = true;
 								}
-							}
+							} else {
+								failSafe[6] = true;
+							} 
 							if(board.GetColumn(MyPos[0] + 1) != null) {
 								if(board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] + 1) != null) {
 									if(!board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().GetOccupant()) {
 										if(board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().GetState()) {
 											board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().ChangeColor(2);
 											board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().SetisActive(true);
-										}  
-									} 
-								} 
+										}else {
+											failSafe[7] = true;
+										}
+									} else {
+										failSafe[8] = true;
+									}
+								} else {
+									failSafe[9] = true;
+								}
 							} else {
-								canMove = false;
-							}
+								failSafe[10] = true;
+							} 
+							FailCheck(failSafe.Length, failLimit); 
 						}
 					} else { // Black Player
 						if(firstMove) { // Pawn could move two tiles forward
@@ -354,7 +429,7 @@ public class Piece : MonoBehaviour {
 								}
 							}
 						}
-					}
+					} 
 				}
 			#endregion
 			break;

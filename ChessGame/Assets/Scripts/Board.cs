@@ -26,7 +26,6 @@ public class Board : MonoBehaviour {
 	}
 
 	void Update() {
-		Debug.Log(state);
 		if(state == 2) {
 			if(counter / timeOfAction <= 1) {
 				counter += Time.deltaTime;
