@@ -113,9 +113,11 @@ public class Piece : MonoBehaviour {
 							}
 							if(board.GetColumn(MyPos[0]) != null) {
 								if(board.GetColumn(MyPos[0]).GetComponent<Column>().Tiles(MyPos[1] + 2) != null) {
-									if(!board.GetColumn(MyPos[0]).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().GetState()) {
-											board.GetColumn(MyPos[0]).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().ChangeColor(1);
-											board.GetColumn(MyPos[0]).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().SetisActive(true); 
+									if(!board.GetColumn(MyPos[0]).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().GetState()) {
+											if(!board.GetColumn(MyPos[0]).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().GetState()) {
+												board.GetColumn(MyPos[0]).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().ChangeColor(1);
+												board.GetColumn(MyPos[0]).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().SetisActive(true); 
+										}
 									}
 								}
 							}
@@ -136,18 +138,10 @@ public class Piece : MonoBehaviour {
 										if(board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().GetState()) {
 											board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().ChangeColor(2);
 											board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().SetisActive(true);
-										} else {
-											canMove = false;
-										}
-									} else {
-										canMove = false;
-									}
-								} else {
-									canMove = false;
-								}
-							} else {
-								canMove = false;
-							}
+										} 
+									} 
+								} 
+							} 
 						} else {
 							// Non-First Move - Movement
 							if(board.GetColumn(MyPos[0]) != null) {
@@ -175,15 +169,9 @@ public class Piece : MonoBehaviour {
 										if(board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().GetState()) {
 											board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().ChangeColor(2);
 											board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().SetisActive(true);
-										} else {
-											canMove = false;
-										} 
-									} else {
-										canMove = false;
-									}
-								} else {
-									canMove = false;
-								}
+										}  
+									} 
+								} 
 							} else {
 								canMove = false;
 							}
@@ -227,8 +215,7 @@ public class Piece : MonoBehaviour {
 										}
 									}
 								}
-							}
-							
+							} 
 						} else {
 							// Non-First Move - Movement
 							if(board.GetColumn(MyPos[0]) != null) {
@@ -256,15 +243,9 @@ public class Piece : MonoBehaviour {
 										if(board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().GetState()) {
 											board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().ChangeColor(2);
 											board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().SetisActive(true);
-										} else {
-											canMove = false;
-										}
-									} else {
-										canMove = false;
-									}
-								} else {
-									canMove = false;
-								}
+										} 
+									} 
+								} 
 							} else {
 								canMove = false;
 							}
@@ -280,46 +261,96 @@ public class Piece : MonoBehaviour {
 					board.ChangeState(1); // Change to Move
 					if(board.GetColumn(MyPos[0] + 1) != null) {
 						if(board.GetColumn(MyPos[0] + 1).GetComponent<Column>().Tiles(MyPos[1] + 2) != null) {
-							if(isWhite) {
-								if(!board.GetColumn(MyPos[0] + 1).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().GetState()) {
-									if(board.GetColumn(MyPos[0] + 1).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().GetOccupant() != isWhite) {
-										board.GetColumn(MyPos[0] + 1).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().ChangeColor(2);
-										board.GetColumn(MyPos[0] + 1).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().SetisActive(true);
-									}
-									board.GetColumn(MyPos[0] + 1).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().ChangeColor(1);
+							if(!board.GetColumn(MyPos[0] + 1).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().GetState()) {
+								board.GetColumn(MyPos[0] + 1).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().ChangeColor(1);
+								board.GetColumn(MyPos[0] + 1).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().SetisActive(true);
+							} else {
+								if(board.GetColumn(MyPos[0] + 1).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().GetOccupant() != isWhite) {
+									board.GetColumn(MyPos[0] + 1).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().ChangeColor(2);
 									board.GetColumn(MyPos[0] + 1).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().SetisActive(true);
 								}
+							}
+						}
+						if(board.GetColumn(MyPos[0] + 1).GetComponent<Column>().Tiles(MyPos[1] - 2) != null) {
+							if(!board.GetColumn(MyPos[0] + 1).GetComponent<Column>().Tiles(MyPos[1] - 2).GetComponent<Tile>().GetState()) {
+								board.GetColumn(MyPos[0] + 1).GetComponent<Column>().Tiles(MyPos[1] - 2).GetComponent<Tile>().ChangeColor(1);
+								board.GetColumn(MyPos[0] + 1).GetComponent<Column>().Tiles(MyPos[1] - 2).GetComponent<Tile>().SetisActive(true);
 							} else {
-								if(!board.GetColumn(MyPos[0] + 1).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().GetState()) {
-									if(board.GetColumn(MyPos[0] + 1).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().GetOccupant() == isWhite) {
-										board.GetColumn(MyPos[0] + 1).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().ChangeColor(2);
-										board.GetColumn(MyPos[0] + 1).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().SetisActive(true);
-									}
-									board.GetColumn(MyPos[0] + 1).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().ChangeColor(1);
-									board.GetColumn(MyPos[0] + 1).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().SetisActive(true);
+								if(board.GetColumn(MyPos[0] + 1).GetComponent<Column>().Tiles(MyPos[1] - 2).GetComponent<Tile>().GetOccupant() != isWhite) {
+									board.GetColumn(MyPos[0] + 1).GetComponent<Column>().Tiles(MyPos[1] - 2).GetComponent<Tile>().ChangeColor(2);
+									board.GetColumn(MyPos[0] + 1).GetComponent<Column>().Tiles(MyPos[1] - 2).GetComponent<Tile>().SetisActive(true);
 								}
 							}
 						}
 					}
 					if(board.GetColumn(MyPos[0] - 1) != null) {
 						if(board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] + 2) != null) {
-							if(isWhite) {
-								if(!board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().GetState()) {
-									if(board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().GetOccupant() != isWhite) {
-										board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().ChangeColor(2);
-										board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().SetisActive(true);
-									}
-									board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().ChangeColor(1);
+							if(!board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().GetState()) {
+								board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().ChangeColor(1);
+								board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().SetisActive(true);
+							} else {
+								if(board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().GetOccupant() != isWhite) {
+									board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().ChangeColor(2);
 									board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().SetisActive(true);
 								}
+							}
+						}
+						if(board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] - 2) != null) {
+							if(!board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] - 2).GetComponent<Tile>().GetState()) {
+								board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] - 2).GetComponent<Tile>().ChangeColor(1);
+								board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] - 2).GetComponent<Tile>().SetisActive(true);
 							} else {
-								if(!board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().GetState()) {
-									if(board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().GetOccupant() == isWhite) {
-										board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().ChangeColor(2);
-										board.GetColumn(MyPos[0] + 1).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().SetisActive(true);
+								if(board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] - 2).GetComponent<Tile>().GetOccupant() != isWhite) {
+									board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] - 2).GetComponent<Tile>().ChangeColor(2);
+									board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] - 2).GetComponent<Tile>().SetisActive(true);
+								}
+							}
+						}
+					}
+					if(board.GetColumn(MyPos[0] + 2) != null) {
+						if(board.GetColumn(MyPos[0] + 2).GetComponent<Column>().Tiles(MyPos[1] + 1) != null) {
+							if(!board.GetColumn(MyPos[0] + 2).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().GetState()) {
+								board.GetColumn(MyPos[0] + 2).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().ChangeColor(1);
+								board.GetColumn(MyPos[0] + 2).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().SetisActive(true);
+							} else {
+								if(board.GetColumn(MyPos[0] + 2).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().GetOccupant() != isWhite) {
+									board.GetColumn(MyPos[0] + 2).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().ChangeColor(2);
+									board.GetColumn(MyPos[0] + 2).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().SetisActive(true);
+								}
+							}
+							if(board.GetColumn(MyPos[0] + 2).GetComponent<Column>().Tiles(MyPos[1] - 1) != null) {
+								if(!board.GetColumn(MyPos[0] + 2).GetComponent<Column>().Tiles(MyPos[1] - 1).GetComponent<Tile>().GetState()) {
+									board.GetColumn(MyPos[0] + 2).GetComponent<Column>().Tiles(MyPos[1] - 1).GetComponent<Tile>().ChangeColor(1);
+									board.GetColumn(MyPos[0] + 2).GetComponent<Column>().Tiles(MyPos[1] - 1).GetComponent<Tile>().SetisActive(true);
+								} else {
+									if(board.GetColumn(MyPos[0] + 2).GetComponent<Column>().Tiles(MyPos[1] - 1).GetComponent<Tile>().GetOccupant() != isWhite) {
+										board.GetColumn(MyPos[0] + 2).GetComponent<Column>().Tiles(MyPos[1] - 1).GetComponent<Tile>().ChangeColor(2);
+										board.GetColumn(MyPos[0] + 2).GetComponent<Column>().Tiles(MyPos[1] - 1).GetComponent<Tile>().SetisActive(true);
 									}
-									board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().ChangeColor(1);
-									board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().SetisActive(true);
+								}
+							}
+						}
+					}
+					if(board.GetColumn(MyPos[0] - 2) != null) {
+						if(board.GetColumn(MyPos[0] - 2).GetComponent<Column>().Tiles(MyPos[1] + 1) != null) {
+							if(!board.GetColumn(MyPos[0] - 2).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().GetState()) {
+								board.GetColumn(MyPos[0] - 2).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().ChangeColor(1);
+								board.GetColumn(MyPos[0] - 2).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().SetisActive(true);
+							} else {
+								if(board.GetColumn(MyPos[0] - 2).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().GetOccupant() != isWhite) {
+									board.GetColumn(MyPos[0] - 2).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().ChangeColor(2);
+									board.GetColumn(MyPos[0] - 2).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().SetisActive(true);
+								}
+							}
+						}
+						if(board.GetColumn(MyPos[0] - 2).GetComponent<Column>().Tiles(MyPos[1] - 1) != null) {
+							if(!board.GetColumn(MyPos[0] - 2).GetComponent<Column>().Tiles(MyPos[1] - 1).GetComponent<Tile>().GetState()) {
+								board.GetColumn(MyPos[0] - 2).GetComponent<Column>().Tiles(MyPos[1] - 1).GetComponent<Tile>().ChangeColor(1);
+								board.GetColumn(MyPos[0] - 2).GetComponent<Column>().Tiles(MyPos[1] - 1).GetComponent<Tile>().SetisActive(true);
+							} else {
+								if(board.GetColumn(MyPos[0] - 2).GetComponent<Column>().Tiles(MyPos[1] - 1).GetComponent<Tile>().GetOccupant() != isWhite) {
+									board.GetColumn(MyPos[0] - 2).GetComponent<Column>().Tiles(MyPos[1] - 1).GetComponent<Tile>().ChangeColor(2);
+									board.GetColumn(MyPos[0] - 2).GetComponent<Column>().Tiles(MyPos[1] - 1).GetComponent<Tile>().SetisActive(true);
 								}
 							}
 						}
