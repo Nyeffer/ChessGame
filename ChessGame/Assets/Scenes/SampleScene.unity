@@ -885,6 +885,11 @@ Prefab:
       propertyPath: initRow
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114393030557897360, guid: cc56c85f625a1d44b8f8ee7592ca5885,
+        type: 2}
+      propertyPath: isWhite
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc56c85f625a1d44b8f8ee7592ca5885, type: 2}
   m_IsPrefabAsset: 0
