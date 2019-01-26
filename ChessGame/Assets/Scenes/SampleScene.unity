@@ -883,7 +883,7 @@ Prefab:
     - target: {fileID: 114393030557897360, guid: cc56c85f625a1d44b8f8ee7592ca5885,
         type: 2}
       propertyPath: initRow
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc56c85f625a1d44b8f8ee7592ca5885, type: 2}
@@ -2031,7 +2031,7 @@ MonoBehaviour:
   board: {fileID: 1196295000}
   rowID: 1
   colID: 0
-  isOccupied: 1
+  isOccupied: 0
   byWhite: 0
 --- !u!1 &570815243
 GameObject:
@@ -5607,7 +5607,7 @@ MonoBehaviour:
   board: {fileID: 1196295000}
   rowID: 2
   colID: 0
-  isOccupied: 1
+  isOccupied: 0
   byWhite: 0
 --- !u!1 &1578350965
 GameObject:
@@ -6512,8 +6512,8 @@ MonoBehaviour:
   board: {fileID: 1196295000}
   rowID: 1
   colID: 1
-  isOccupied: 1
-  byWhite: 1
+  isOccupied: 0
+  byWhite: 0
 --- !u!1 &1754675720
 GameObject:
   m_ObjectHideFlags: 0
