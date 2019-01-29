@@ -532,6 +532,13 @@ public class Piece : MonoBehaviour {
 			#endregion
 			break;
 			case 3:
+			#region Bishop 
+				// Bishop's Move
+				if(board.GetState() == 0) { // Check if Neutral
+					board.ChangeState(1); // Change State to Move
+
+				}
+			#endregion
 			break;
 			case 4:
 			break;
