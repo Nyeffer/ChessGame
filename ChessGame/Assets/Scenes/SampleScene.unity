@@ -3392,6 +3392,11 @@ MonoBehaviour:
   - {fileID: 545482773}
   - {fileID: 1598867633}
   - {fileID: 1650636013}
+--- !u!4 &910256184 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4330811465332654, guid: c1fa9dcea70b7f848befbf304c6e530e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1506155584}
 --- !u!1 &923709480
 GameObject:
   m_ObjectHideFlags: 0
@@ -3740,6 +3745,36 @@ MonoBehaviour:
   - {fileID: 498315837}
   - {fileID: 1631489934}
   - {fileID: 2063025030}
+--- !u!1 &1094305576
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1094305577}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1094305577
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1094305576}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 910256184}
+  - {fileID: 1439396049}
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1099790807
 GameObject:
   m_ObjectHideFlags: 0
@@ -4851,8 +4886,8 @@ MonoBehaviour:
   board: {fileID: 1196295000}
   rowID: 3
   colID: 3
-  isOccupied: 1
-  byWhite: 1
+  isOccupied: 0
+  byWhite: 0
 --- !u!1 &1331589930
 GameObject:
   m_ObjectHideFlags: 0
@@ -5487,8 +5522,8 @@ MonoBehaviour:
   board: {fileID: 1196295000}
   rowID: 5
   colID: 5
-  isOccupied: 1
-  byWhite: 1
+  isOccupied: 0
+  byWhite: 0
 --- !u!1001 &1383068791
 Prefab:
   m_ObjectHideFlags: 0
@@ -5669,6 +5704,72 @@ MonoBehaviour:
   colID: 2
   isOccupied: 0
   byWhite: 0
+--- !u!1001 &1439396048
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1094305577}
+    m_Modifications:
+    - target: {fileID: 4330811465332654, guid: c1fa9dcea70b7f848befbf304c6e530e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4330811465332654, guid: c1fa9dcea70b7f848befbf304c6e530e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4330811465332654, guid: c1fa9dcea70b7f848befbf304c6e530e, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4330811465332654, guid: c1fa9dcea70b7f848befbf304c6e530e, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4330811465332654, guid: c1fa9dcea70b7f848befbf304c6e530e, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4330811465332654, guid: c1fa9dcea70b7f848befbf304c6e530e, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4330811465332654, guid: c1fa9dcea70b7f848befbf304c6e530e, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4330811465332654, guid: c1fa9dcea70b7f848befbf304c6e530e, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114505357970118128, guid: c1fa9dcea70b7f848befbf304c6e530e,
+        type: 2}
+      propertyPath: board
+      value: 
+      objectReference: {fileID: 1196295000}
+    - target: {fileID: 114505357970118128, guid: c1fa9dcea70b7f848befbf304c6e530e,
+        type: 2}
+      propertyPath: initCol
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114505357970118128, guid: c1fa9dcea70b7f848befbf304c6e530e,
+        type: 2}
+      propertyPath: initRow
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1779759136232562, guid: c1fa9dcea70b7f848befbf304c6e530e, type: 2}
+      propertyPath: m_Name
+      value: Bishop (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c1fa9dcea70b7f848befbf304c6e530e, type: 2}
+  m_IsPrefabAsset: 0
+--- !u!4 &1439396049 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4330811465332654, guid: c1fa9dcea70b7f848befbf304c6e530e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1439396048}
 --- !u!1 &1457032511
 GameObject:
   m_ObjectHideFlags: 0
@@ -5886,7 +5987,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1094305577}
     m_Modifications:
     - target: {fileID: 4330811465332654, guid: c1fa9dcea70b7f848befbf304c6e530e, type: 2}
       propertyPath: m_LocalPosition.x
@@ -5918,7 +6019,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4330811465332654, guid: c1fa9dcea70b7f848befbf304c6e530e, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114505357970118128, guid: c1fa9dcea70b7f848befbf304c6e530e,
         type: 2}
@@ -5928,12 +6029,12 @@ Prefab:
     - target: {fileID: 114505357970118128, guid: c1fa9dcea70b7f848befbf304c6e530e,
         type: 2}
       propertyPath: initCol
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114505357970118128, guid: c1fa9dcea70b7f848befbf304c6e530e,
         type: 2}
       propertyPath: initRow
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1fa9dcea70b7f848befbf304c6e530e, type: 2}
@@ -6259,8 +6360,8 @@ MonoBehaviour:
   board: {fileID: 1196295000}
   rowID: 3
   colID: 5
-  isOccupied: 1
-  byWhite: 1
+  isOccupied: 0
+  byWhite: 0
 --- !u!4 &1578424813 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4657186044487848, guid: cc56c85f625a1d44b8f8ee7592ca5885,
@@ -7637,7 +7738,7 @@ Transform:
   - {fileID: 1711547840}
   - {fileID: 1799572517}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1889217274
 GameObject:
@@ -8172,8 +8273,8 @@ MonoBehaviour:
   board: {fileID: 1196295000}
   rowID: 5
   colID: 3
-  isOccupied: 1
-  byWhite: 1
+  isOccupied: 0
+  byWhite: 0
 --- !u!1 &2063025030
 GameObject:
   m_ObjectHideFlags: 0
