@@ -536,12 +536,11 @@ public class Piece : MonoBehaviour {
 				// Bishop's Move
 				if(board.GetState() == 0) { // Check if Neutral
 					board.ChangeState(1); // Change State to Move
-					failSafe = new bool[15];
+					failSafe = new bool[12];
 					failLimit = 4;
-					#region BishopNorthEast
 					#region NE1
 					if(board.GetColumn(MyPos[0] + 1) != null) { // Check if the Right Side exist  
-						if(board.GetColumn(MyPos[0] + 1).GetComponent<Column>().Tiles(MyPos[1] + 1) != null) { // Northeast
+						if(board.GetColumn(MyPos[0] + 1).GetComponent<Column>().Tiles(MyPos[1] + 1) != null) {  // Northeast
 							if(!board.GetColumn(MyPos[0] + 1).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().GetState()) { // Check if Unoccupied
 								board.GetColumn(MyPos[0] + 1).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().ChangeColor(1); // Turns into Green
 								board.GetColumn(MyPos[0] + 1).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().SetisActive(true); // Can be Clicked
@@ -549,12 +548,12 @@ public class Piece : MonoBehaviour {
 								if(board.GetColumn(MyPos[0] + 1).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().GetOccupant() != isWhite) { // Check if it's an Enemy
 									board.GetColumn(MyPos[0] + 1).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().ChangeColor(2); // Turns into Red
 									board.GetColumn(MyPos[0] + 1).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().SetisActive(true); // Can be Clicked
-								} else { // if an Ally
-									failSafe[2] = true;
+								} else {
+									failSafe[3] = true;
 								}
 							}
-						} else { // if Column exist but the Tiles doesn't
-							failSafe[1] = true;
+						} else {
+							failSafe[2] = true;
 						}
 						if(board.GetColumn(MyPos[0] + 1).GetComponent<Column>().Tiles(MyPos[1] - 1) != null) { // Northwest
 							if(!board.GetColumn(MyPos[0] + 1).GetComponent<Column>().Tiles(MyPos[1] - 1).GetComponent<Tile>().GetState()) { // Check if Unoccupied
@@ -564,56 +563,201 @@ public class Piece : MonoBehaviour {
 								if(board.GetColumn(MyPos[0] + 1).GetComponent<Column>().Tiles(MyPos[1] - 1).GetComponent<Tile>().GetOccupant() != isWhite) { // Check if it's an Enemy
 									board.GetColumn(MyPos[0] + 1).GetComponent<Column>().Tiles(MyPos[1] - 1).GetComponent<Tile>().ChangeColor(2); // Turns into Red
 									board.GetColumn(MyPos[0] + 1).GetComponent<Column>().Tiles(MyPos[1] - 1).GetComponent<Tile>().SetisActive(true); // Can be Clicked
-								} else { // if an Ally
-									failSafe[4] = true;
+								} else {
+									failSafe[5] = true;
 								}
 							}
-						} else { // if Column exist but the Tiles doesn't
-							failSafe[3] = true;
+						} else {
+							failSafe[4] = true;
 						}
 					} else { // if the Column doesn't exist
 						failSafe[0] = true;
+						failSafe[1] = true;
 					}
 					#endregion
 					#region NE2
-					if(board.GetColumn(MyPos[0] + 2) != null) { // Check if the Right Side exist  
-						if(board.GetColumn(MyPos[0] + 2).GetComponent<Column>().Tiles(MyPos[1] + 2) != null) { // Northeast
-							if(!board.GetColumn(MyPos[0] + 2).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().GetState()) { // Check if Unoccupied
-								board.GetColumn(MyPos[0] + 2).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().ChangeColor(1); // Turns into Green
-								board.GetColumn(MyPos[0] + 2).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().SetisActive(true); // Can be Clicked
-							} else { // if Occupied, What side occupies it?
-								if(board.GetColumn(MyPos[0] + 2).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().GetOccupant() != isWhite) { // Check if it's an Enemy
-									board.GetColumn(MyPos[0] + 2).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().ChangeColor(2); // Turns into Red
+					if(board.GetColumn(MyPos[0] + 2) != null) { // Check if the Right Side exist
+						if(board.GetColumn(MyPos[0] + 1).GetComponent<Column>().Tiles(MyPos[1] + 1) != null) { // Check previous Tile
+							if(board.GetColumn(MyPos[0] + 2).GetComponent<Column>().Tiles(MyPos[1] + 2) != null) { // Northeast
+								if(!board.GetColumn(MyPos[0] + 2).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().GetState()) { // Check if Unoccupied
+									board.GetColumn(MyPos[0] + 2).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().ChangeColor(1); // Turns into Green
 									board.GetColumn(MyPos[0] + 2).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().SetisActive(true); // Can be Clicked
-								} else { // if an Ally
-									failSafe[2] = true;
+								} else { // if Occupied, What side occupies it?
+									if(board.GetColumn(MyPos[0] + 2).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().GetOccupant() != isWhite) { // Check if it's an Enemy
+										board.GetColumn(MyPos[0] + 2).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().ChangeColor(2); // Turns into Red
+										board.GetColumn(MyPos[0] + 2).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().SetisActive(true); // Can be Clicked
+									} 
 								}
-							}
-						} else { // if Column exist but the Tiles doesn't
-							failSafe[1] = true;
+							} 
 						}
-						if(board.GetColumn(MyPos[0] + 2).GetComponent<Column>().Tiles(MyPos[1] - 2) != null) { // Northwest
-							if(!board.GetColumn(MyPos[0] + 2).GetComponent<Column>().Tiles(MyPos[1] - 2).GetComponent<Tile>().GetState()) { // Check if Unoccupied
-								board.GetColumn(MyPos[0] + 2).GetComponent<Column>().Tiles(MyPos[1] - 2).GetComponent<Tile>().ChangeColor(1); // Turns into Green
-								board.GetColumn(MyPos[0] + 2).GetComponent<Column>().Tiles(MyPos[1] - 2).GetComponent<Tile>().SetisActive(true); // Can be Clicked
-							} else { // if Occupied, What side occupies it?
-								if(board.GetColumn(MyPos[0] + 2).GetComponent<Column>().Tiles(MyPos[1] - 2).GetComponent<Tile>().GetOccupant() != isWhite) { // Check if it's an Enemy
-									board.GetColumn(MyPos[0] + 2).GetComponent<Column>().Tiles(MyPos[1] - 2).GetComponent<Tile>().ChangeColor(2); // Turns into Red
+						if(board.GetColumn(MyPos[0] + 1).GetComponent<Column>().Tiles(MyPos[1] - 1) != null) { // Check previous Tile
+							if(board.GetColumn(MyPos[0] + 2).GetComponent<Column>().Tiles(MyPos[1] - 2) != null) { // Northwest
+								if(!board.GetColumn(MyPos[0] + 2).GetComponent<Column>().Tiles(MyPos[1] - 2).GetComponent<Tile>().GetState()) { // Check if Unoccupied
+									board.GetColumn(MyPos[0] + 2).GetComponent<Column>().Tiles(MyPos[1] - 2).GetComponent<Tile>().ChangeColor(1); // Turns into Green
 									board.GetColumn(MyPos[0] + 2).GetComponent<Column>().Tiles(MyPos[1] - 2).GetComponent<Tile>().SetisActive(true); // Can be Clicked
-								} else { // if an Ally
-									failSafe[4] = true;
+								} else { // if Occupied, What side occupies it?
+									if(board.GetColumn(MyPos[0] + 2).GetComponent<Column>().Tiles(MyPos[1] - 2).GetComponent<Tile>().GetOccupant() != isWhite) { // Check if it's an Enemy
+										board.GetColumn(MyPos[0] + 2).GetComponent<Column>().Tiles(MyPos[1] - 2).GetComponent<Tile>().ChangeColor(2); // Turns into Red
+										board.GetColumn(MyPos[0] + 2).GetComponent<Column>().Tiles(MyPos[1] - 2).GetComponent<Tile>().SetisActive(true); // Can be Clicked
+									} 
 								}
 							}
-						} else { // if Column exist but the Tiles doesn't
-							failSafe[3] = true;
+						}   
+					} 
+					#endregion
+					#region NE3
+					if(board.GetColumn(MyPos[0] + 3) != null) { // Check if the Right Side exist
+						if(board.GetColumn(MyPos[0] + 2).GetComponent<Column>().Tiles(MyPos[1] + 2) != null) { // Check previous Tile
+							if(board.GetColumn(MyPos[0] + 3).GetComponent<Column>().Tiles(MyPos[1] + 3) != null) { // Northeast
+								if(!board.GetColumn(MyPos[0] + 3).GetComponent<Column>().Tiles(MyPos[1] + 3).GetComponent<Tile>().GetState()) { // Check if Unoccupied
+									board.GetColumn(MyPos[0] + 3).GetComponent<Column>().Tiles(MyPos[1] + 3).GetComponent<Tile>().ChangeColor(1); // Turns into Green
+									board.GetColumn(MyPos[0] + 3).GetComponent<Column>().Tiles(MyPos[1] + 3).GetComponent<Tile>().SetisActive(true); // Can be Clicked
+								} else { // if Occupied, What side occupies it?
+									if(board.GetColumn(MyPos[0] + 3).GetComponent<Column>().Tiles(MyPos[1] + 3).GetComponent<Tile>().GetOccupant() != isWhite) { // Check if it's an Enemy
+										board.GetColumn(MyPos[0] + 3).GetComponent<Column>().Tiles(MyPos[1] + 3).GetComponent<Tile>().ChangeColor(2); // Turns into Red
+										board.GetColumn(MyPos[0] + 3).GetComponent<Column>().Tiles(MyPos[1] + 3).GetComponent<Tile>().SetisActive(true); // Can be Clicked
+									} 
+								}
+							} 
 						}
-					} else { // if the Column doesn't exist
-						failSafe[0] = true;
+						if(board.GetColumn(MyPos[0] + 2).GetComponent<Column>().Tiles(MyPos[1] - 2) != null) { // Check previous Tile
+							if(board.GetColumn(MyPos[0] + 3).GetComponent<Column>().Tiles(MyPos[1] - 3) != null) { // Northwest
+								if(!board.GetColumn(MyPos[0] + 3).GetComponent<Column>().Tiles(MyPos[1] - 3).GetComponent<Tile>().GetState()) { // Check if Unoccupied
+									board.GetColumn(MyPos[0] + 3).GetComponent<Column>().Tiles(MyPos[1] - 3).GetComponent<Tile>().ChangeColor(1); // Turns into Green
+									board.GetColumn(MyPos[0] + 3).GetComponent<Column>().Tiles(MyPos[1] - 3).GetComponent<Tile>().SetisActive(true); // Can be Clicked
+								} else { // if Occupied, What side occupies it?
+									if(board.GetColumn(MyPos[0] + 3).GetComponent<Column>().Tiles(MyPos[1] - 3).GetComponent<Tile>().GetOccupant() != isWhite) { // Check if it's an Enemy
+										board.GetColumn(MyPos[0] + 3).GetComponent<Column>().Tiles(MyPos[1] - 3).GetComponent<Tile>().ChangeColor(2); // Turns into Red
+										board.GetColumn(MyPos[0] + 3).GetComponent<Column>().Tiles(MyPos[1] - 3).GetComponent<Tile>().SetisActive(true); // Can be Clicked
+									} 
+								}
+							}
+						}   
 					}
 					#endregion
+					#region NE4
+					if(board.GetColumn(MyPos[0] + 4) != null) { // Check if the Right Side exist
+						if(board.GetColumn(MyPos[0] + 3).GetComponent<Column>().Tiles(MyPos[1] + 3) != null) { // Check previous Tile
+							if(board.GetColumn(MyPos[0] + 4).GetComponent<Column>().Tiles(MyPos[1] + 4) != null) { // Northeast
+								if(!board.GetColumn(MyPos[0] + 4).GetComponent<Column>().Tiles(MyPos[1] + 4).GetComponent<Tile>().GetState()) { // Check if Unoccupied
+									board.GetColumn(MyPos[0] + 4).GetComponent<Column>().Tiles(MyPos[1] + 4).GetComponent<Tile>().ChangeColor(1); // Turns into Green
+									board.GetColumn(MyPos[0] + 4).GetComponent<Column>().Tiles(MyPos[1] + 4).GetComponent<Tile>().SetisActive(true); // Can be Clicked
+								} else { // if Occupied, What side occupies it?
+									if(board.GetColumn(MyPos[0] + 4).GetComponent<Column>().Tiles(MyPos[1] + 4).GetComponent<Tile>().GetOccupant() != isWhite) { // Check if it's an Enemy
+										board.GetColumn(MyPos[0] + 4).GetComponent<Column>().Tiles(MyPos[1] + 4).GetComponent<Tile>().ChangeColor(2); // Turns into Red
+										board.GetColumn(MyPos[0] + 4).GetComponent<Column>().Tiles(MyPos[1] + 4).GetComponent<Tile>().SetisActive(true); // Can be Clicked
+									} 
+								}
+							} 
+						}
+						if(board.GetColumn(MyPos[0] + 3).GetComponent<Column>().Tiles(MyPos[1] - 3) != null) { // Check previous Tile
+							if(board.GetColumn(MyPos[0] + 4).GetComponent<Column>().Tiles(MyPos[1] - 4) != null) { // Northwest
+								if(!board.GetColumn(MyPos[0] + 4).GetComponent<Column>().Tiles(MyPos[1] - 4).GetComponent<Tile>().GetState()) { // Check if Unoccupied
+									board.GetColumn(MyPos[0] + 4).GetComponent<Column>().Tiles(MyPos[1] - 4).GetComponent<Tile>().ChangeColor(1); // Turns into Green
+									board.GetColumn(MyPos[0] + 4).GetComponent<Column>().Tiles(MyPos[1] - 4).GetComponent<Tile>().SetisActive(true); // Can be Clicked
+								} else { // if Occupied, What side occupies it?
+									if(board.GetColumn(MyPos[0] + 4).GetComponent<Column>().Tiles(MyPos[1] - 4).GetComponent<Tile>().GetOccupant() != isWhite) { // Check if it's an Enemy
+										board.GetColumn(MyPos[0] + 4).GetComponent<Column>().Tiles(MyPos[1] - 4).GetComponent<Tile>().ChangeColor(2); // Turns into Red
+										board.GetColumn(MyPos[0] + 4).GetComponent<Column>().Tiles(MyPos[1] - 4).GetComponent<Tile>().SetisActive(true); // Can be Clicked
+									} 
+								}
+							}
+						}   
+					}
 					#endregion
+					#region NE5
+					if(board.GetColumn(MyPos[0] + 5) != null) { // Check if the Right Side exist
+						if(board.GetColumn(MyPos[0] + 4).GetComponent<Column>().Tiles(MyPos[1] + 4) != null) { // Check previous Tile
+							if(board.GetColumn(MyPos[0] + 5).GetComponent<Column>().Tiles(MyPos[1] + 5) != null) { // Northeast
+								if(!board.GetColumn(MyPos[0] + 5).GetComponent<Column>().Tiles(MyPos[1] + 5).GetComponent<Tile>().GetState()) { // Check if Unoccupied
+									board.GetColumn(MyPos[0] + 5).GetComponent<Column>().Tiles(MyPos[1] + 5).GetComponent<Tile>().ChangeColor(1); // Turns into Green
+									board.GetColumn(MyPos[0] + 5).GetComponent<Column>().Tiles(MyPos[1] + 5).GetComponent<Tile>().SetisActive(true); // Can be Clicked
+								} else { // if Occupied, What side occupies it?
+									if(board.GetColumn(MyPos[0] + 5).GetComponent<Column>().Tiles(MyPos[1] + 5).GetComponent<Tile>().GetOccupant() != isWhite) { // Check if it's an Enemy
+										board.GetColumn(MyPos[0] + 5).GetComponent<Column>().Tiles(MyPos[1] + 5).GetComponent<Tile>().ChangeColor(2); // Turns into Red
+										board.GetColumn(MyPos[0] + 5).GetComponent<Column>().Tiles(MyPos[1] + 5).GetComponent<Tile>().SetisActive(true); // Can be Clicked
+									} 
+								}
+							} 
+						}
+						if(board.GetColumn(MyPos[0] + 4).GetComponent<Column>().Tiles(MyPos[1] - 4) != null) { // Check previous Tile
+							if(board.GetColumn(MyPos[0] + 5).GetComponent<Column>().Tiles(MyPos[1] - 5) != null) { // Northwest
+								if(!board.GetColumn(MyPos[0] + 5).GetComponent<Column>().Tiles(MyPos[1] - 5).GetComponent<Tile>().GetState()) { // Check if Unoccupied
+									board.GetColumn(MyPos[0] + 5).GetComponent<Column>().Tiles(MyPos[1] - 5).GetComponent<Tile>().ChangeColor(1); // Turns into Green
+									board.GetColumn(MyPos[0] + 5).GetComponent<Column>().Tiles(MyPos[1] - 5).GetComponent<Tile>().SetisActive(true); // Can be Clicked
+								} else { // if Occupied, What side occupies it?
+									if(board.GetColumn(MyPos[0] + 5).GetComponent<Column>().Tiles(MyPos[1] - 5).GetComponent<Tile>().GetOccupant() != isWhite) { // Check if it's an Enemy
+										board.GetColumn(MyPos[0] + 5).GetComponent<Column>().Tiles(MyPos[1] - 5).GetComponent<Tile>().ChangeColor(2); // Turns into Red
+										board.GetColumn(MyPos[0] + 5).GetComponent<Column>().Tiles(MyPos[1] - 5).GetComponent<Tile>().SetisActive(true); // Can be Clicked
+									} 
+								}
+							}
+						}   
+					}
+					#endregion
+					#region NE6
+					if(board.GetColumn(MyPos[0] + 6) != null) { // Check if the Right Side exist
+						if(board.GetColumn(MyPos[0] + 5).GetComponent<Column>().Tiles(MyPos[1] + 5) != null) { // Check previous Tile
+							if(board.GetColumn(MyPos[0] + 6).GetComponent<Column>().Tiles(MyPos[1] + 6) != null) { // Northeast
+								if(!board.GetColumn(MyPos[0] + 6).GetComponent<Column>().Tiles(MyPos[1] + 6).GetComponent<Tile>().GetState()) { // Check if Unoccupied
+									board.GetColumn(MyPos[0] + 6).GetComponent<Column>().Tiles(MyPos[1] + 6).GetComponent<Tile>().ChangeColor(1); // Turns into Green
+									board.GetColumn(MyPos[0] + 6).GetComponent<Column>().Tiles(MyPos[1] + 6).GetComponent<Tile>().SetisActive(true); // Can be Clicked
+								} else { // if Occupied, What side occupies it?
+									if(board.GetColumn(MyPos[0] + 6).GetComponent<Column>().Tiles(MyPos[1] + 6).GetComponent<Tile>().GetOccupant() != isWhite) { // Check if it's an Enemy
+										board.GetColumn(MyPos[0] + 6).GetComponent<Column>().Tiles(MyPos[1] + 6).GetComponent<Tile>().ChangeColor(2); // Turns into Red
+										board.GetColumn(MyPos[0] + 6).GetComponent<Column>().Tiles(MyPos[1] + 6).GetComponent<Tile>().SetisActive(true); // Can be Clicked
+									} 
+								}
+							} 
+						}
+						if(board.GetColumn(MyPos[0] + 5).GetComponent<Column>().Tiles(MyPos[1] - 5) != null) { // Check previous Tile
+							if(board.GetColumn(MyPos[0] + ).GetComponent<Column>().Tiles(MyPos[1] - 6) != null) { // Northwest
+								if(!board.GetColumn(MyPos[0] + 6).GetComponent<Column>().Tiles(MyPos[1] - 6).GetComponent<Tile>().GetState()) { // Check if Unoccupied
+									board.GetColumn(MyPos[0] + 6).GetComponent<Column>().Tiles(MyPos[1] - 6).GetComponent<Tile>().ChangeColor(1); // Turns into Green
+									board.GetColumn(MyPos[0] + 6).GetComponent<Column>().Tiles(MyPos[1] - 6).GetComponent<Tile>().SetisActive(true); // Can be Clicked
+								} else { // if Occupied, What side occupies it?
+									if(board.GetColumn(MyPos[0] + 6).GetComponent<Column>().Tiles(MyPos[1] - 6).GetComponent<Tile>().GetOccupant() != isWhite) { // Check if it's an Enemy
+										board.GetColumn(MyPos[0] + 6).GetComponent<Column>().Tiles(MyPos[1] - 6).GetComponent<Tile>().ChangeColor(2); // Turns into Red
+										board.GetColumn(MyPos[0] + 6).GetComponent<Column>().Tiles(MyPos[1] - 6).GetComponent<Tile>().SetisActive(true); // Can be Clicked
+									} 
+								}
+							}
+						}   
+					}
+					#endregion
+					#region NE7
+					if(board.GetColumn(MyPos[0] + 7) != null) { // Check if the Right Side exist
+						if(board.GetColumn(MyPos[0] + 6).GetComponent<Column>().Tiles(MyPos[1] + 6) != null) { // Check previous Tile
+							if(board.GetColumn(MyPos[0] + 7).GetComponent<Column>().Tiles(MyPos[1] + 7) != null) { // Northeast
+								if(!board.GetColumn(MyPos[0] + 7).GetComponent<Column>().Tiles(MyPos[1] + 7).GetComponent<Tile>().GetState()) { // Check if Unoccupied
+									board.GetColumn(MyPos[0] + 7).GetComponent<Column>().Tiles(MyPos[1] + 7).GetComponent<Tile>().ChangeColor(1); // Turns into Green
+									board.GetColumn(MyPos[0] + 7).GetComponent<Column>().Tiles(MyPos[1] + 7).GetComponent<Tile>().SetisActive(true); // Can be Clicked
+								} else { // if Occupied, What side occupies it?
+									if(board.GetColumn(MyPos[0] + 7).GetComponent<Column>().Tiles(MyPos[1] + 7).GetComponent<Tile>().GetOccupant() != isWhite) { // Check if it's an Enemy
+										board.GetColumn(MyPos[0] + 7).GetComponent<Column>().Tiles(MyPos[1] + 7).GetComponent<Tile>().ChangeColor(2); // Turns into Red
+										board.GetColumn(MyPos[0] + 7).GetComponent<Column>().Tiles(MyPos[1] + 7).GetComponent<Tile>().SetisActive(true); // Can be Clicked
+									} 
+								}
+							} 
+						}
+						if(board.GetColumn(MyPos[0] + 6).GetComponent<Column>().Tiles(MyPos[1] - 6) != null) { // Check previous Tile
+							if(board.GetColumn(MyPos[0] + 7).GetComponent<Column>().Tiles(MyPos[1] - 7) != null) { // Northwest
+								if(!board.GetColumn(MyPos[0] + 7).GetComponent<Column>().Tiles(MyPos[1] - 7).GetComponent<Tile>().GetState()) { // Check if Unoccupied
+									board.GetColumn(MyPos[0] + 7).GetComponent<Column>().Tiles(MyPos[1] - 7).GetComponent<Tile>().ChangeColor(1); // Turns into Green
+									board.GetColumn(MyPos[0] + 7).GetComponent<Column>().Tiles(MyPos[1] - 7).GetComponent<Tile>().SetisActive(true); // Can be Clicked
+								} else { // if Occupied, What side occupies it?
+									if(board.GetColumn(MyPos[0] + 7).GetComponent<Column>().Tiles(MyPos[1] - 7).GetComponent<Tile>().GetOccupant() != isWhite) { // Check if it's an Enemy
+										board.GetColumn(MyPos[0] + 7).GetComponent<Column>().Tiles(MyPos[1] - 7).GetComponent<Tile>().ChangeColor(2); // Turns into Red
+										board.GetColumn(MyPos[0] + 7).GetComponent<Column>().Tiles(MyPos[1] - 7).GetComponent<Tile>().SetisActive(true); // Can be Clicked
+									} 
+								}
+							}
+						}   
+					}
+					#endregion
+					#region SE1
 					if(board.GetColumn(MyPos[0] - 1) != null) { // Check if the Right Side exist  
-						if(board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] + 1) != null) { // Southeast
+						if(board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] + 1) != null) {  // Northeast
 							if(!board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().GetState()) { // Check if Unoccupied
 								board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().ChangeColor(1); // Turns into Green
 								board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().SetisActive(true); // Can be Clicked
@@ -621,14 +765,14 @@ public class Piece : MonoBehaviour {
 								if(board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().GetOccupant() != isWhite) { // Check if it's an Enemy
 									board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().ChangeColor(2); // Turns into Red
 									board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] + 1).GetComponent<Tile>().SetisActive(true); // Can be Clicked
-								} else { // if an Ally
+								} else {
 									failSafe[9] = true;
 								}
 							}
-						} else { // if Column exist but the Tiles doesn't
+						} else {
 							failSafe[8] = true;
 						}
-						if(board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] - 1) != null) { // Southwest
+						if(board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] - 1) != null) { // Northwest
 							if(!board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] - 1).GetComponent<Tile>().GetState()) { // Check if Unoccupied
 								board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] - 1).GetComponent<Tile>().ChangeColor(1); // Turns into Green
 								board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] - 1).GetComponent<Tile>().SetisActive(true); // Can be Clicked
@@ -636,16 +780,170 @@ public class Piece : MonoBehaviour {
 								if(board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] - 1).GetComponent<Tile>().GetOccupant() != isWhite) { // Check if it's an Enemy
 									board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] - 1).GetComponent<Tile>().ChangeColor(2); // Turns into Red
 									board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] - 1).GetComponent<Tile>().SetisActive(true); // Can be Clicked
-								} else { // if an Ally
-									failSafe[7] = true;
+								} else {
+									failSafe[11] = true;
 								}
 							}
-						} else { // if Column exist but the Tiles doesn't
-							failSafe[6] = true;
+						} else {
+							failSafe[10] = true;
 						}
 					} else { // if the Column doesn't exist
-						failSafe[5] = true;
+						failSafe[6] = true;
+						failSafe[7] = true;
 					}
+					#endregion
+					#region SE2
+					if(board.GetColumn(MyPos[0] - 2) != null) { // Check if the Right Side exist
+						if(board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] + 1) != null) { // Check previous Tile
+							if(board.GetColumn(MyPos[0] - 2).GetComponent<Column>().Tiles(MyPos[1] + 2) != null) { // Northeast
+								if(!board.GetColumn(MyPos[0] - 2).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().GetState()) { // Check if Unoccupied
+									board.GetColumn(MyPos[0] - 2).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().ChangeColor(1); // Turns into Green
+									board.GetColumn(MyPos[0] - 2).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().SetisActive(true); // Can be Clicked
+								} else { // if Occupied, What side occupies it?
+									if(board.GetColumn(MyPos[0] - 2).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().GetOccupant() != isWhite) { // Check if it's an Enemy
+										board.GetColumn(MyPos[0] - 2).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().ChangeColor(2); // Turns into Red
+										board.GetColumn(MyPos[0] - 2).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().SetisActive(true); // Can be Clicked
+									} 
+								}
+							} 
+						}
+						if(board.GetColumn(MyPos[0] - 1).GetComponent<Column>().Tiles(MyPos[1] - 1) != null) { // Check previous Tile
+							if(board.GetColumn(MyPos[0] - 2).GetComponent<Column>().Tiles(MyPos[1] - 2) != null) { // Northwest
+								if(!board.GetColumn(MyPos[0] - 2).GetComponent<Column>().Tiles(MyPos[1] - 2).GetComponent<Tile>().GetState()) { // Check if Unoccupied
+									board.GetColumn(MyPos[0] - 2).GetComponent<Column>().Tiles(MyPos[1] - 2).GetComponent<Tile>().ChangeColor(1); // Turns into Green
+									board.GetColumn(MyPos[0] - 2).GetComponent<Column>().Tiles(MyPos[1] - 2).GetComponent<Tile>().SetisActive(true); // Can be Clicked
+								} else { // if Occupied, What side occupies it?
+									if(board.GetColumn(MyPos[0] - 2).GetComponent<Column>().Tiles(MyPos[1] - 2).GetComponent<Tile>().GetOccupant() != isWhite) { // Check if it's an Enemy
+										board.GetColumn(MyPos[0] - 2).GetComponent<Column>().Tiles(MyPos[1] - 2).GetComponent<Tile>().ChangeColor(2); // Turns into Red
+										board.GetColumn(MyPos[0] - 2).GetComponent<Column>().Tiles(MyPos[1] - 2).GetComponent<Tile>().SetisActive(true); // Can be Clicked
+									} 
+								}
+							}
+						}   
+					} 
+					#endregion
+					#region SE3
+					if(board.GetColumn(MyPos[0] - 3) != null) { // Check if the Right Side exist
+						if(board.GetColumn(MyPos[0] - 2).GetComponent<Column>().Tiles(MyPos[1] + 2) != null) { // Check previous Tile
+							if(board.GetColumn(MyPos[0] - 3).GetComponent<Column>().Tiles(MyPos[1] + 3) != null) { // Northeast
+								if(!board.GetColumn(MyPos[0] - 3).GetComponent<Column>().Tiles(MyPos[1] + 3).GetComponent<Tile>().GetState()) { // Check if Unoccupied
+									board.GetColumn(MyPos[0] - 3).GetComponent<Column>().Tiles(MyPos[1] + 3).GetComponent<Tile>().ChangeColor(1); // Turns into Green
+									board.GetColumn(MyPos[0] - 3).GetComponent<Column>().Tiles(MyPos[1] + 3).GetComponent<Tile>().SetisActive(true); // Can be Clicked
+								} else { // if Occupied, What side occupies it?
+									if(board.GetColumn(MyPos[0] - 3).GetComponent<Column>().Tiles(MyPos[1] + 3).GetComponent<Tile>().GetOccupant() != isWhite) { // Check if it's an Enemy
+										board.GetColumn(MyPos[0] - 3).GetComponent<Column>().Tiles(MyPos[1] + 3).GetComponent<Tile>().ChangeColor(2); // Turns into Red
+										board.GetColumn(MyPos[0] - 3).GetComponent<Column>().Tiles(MyPos[1] + 3).GetComponent<Tile>().SetisActive(true); // Can be Clicked
+									} 
+								}
+							} 
+						}
+						if(board.GetColumn(MyPos[0] - 2).GetComponent<Column>().Tiles(MyPos[1] - 2) != null) { // Check previous Tile
+							if(board.GetColumn(MyPos[0] - 3).GetComponent<Column>().Tiles(MyPos[1] - 3) != null) { // Northwest
+								if(!board.GetColumn(MyPos[0] - 3).GetComponent<Column>().Tiles(MyPos[1] - 3).GetComponent<Tile>().GetState()) { // Check if Unoccupied
+									board.GetColumn(MyPos[0] - 3).GetComponent<Column>().Tiles(MyPos[1] - 3).GetComponent<Tile>().ChangeColor(1); // Turns into Green
+									board.GetColumn(MyPos[0] - 3).GetComponent<Column>().Tiles(MyPos[1] - 3).GetComponent<Tile>().SetisActive(true); // Can be Clicked
+								} else { // if Occupied, What side occupies it?
+									if(board.GetColumn(MyPos[0] - 3).GetComponent<Column>().Tiles(MyPos[1] - 3).GetComponent<Tile>().GetOccupant() != isWhite) { // Check if it's an Enemy
+										board.GetColumn(MyPos[0] - 3).GetComponent<Column>().Tiles(MyPos[1] - 3).GetComponent<Tile>().ChangeColor(2); // Turns into Red
+										board.GetColumn(MyPos[0] - 3).GetComponent<Column>().Tiles(MyPos[1] - 3).GetComponent<Tile>().SetisActive(true); // Can be Clicked
+									} 
+								}
+							}
+						}   
+					}
+					#endregion
+					#region SE4
+					if(board.GetColumn(MyPos[0] - 4) != null) { // Check if the Right Side exist
+						if(board.GetColumn(MyPos[0] - 3).GetComponent<Column>().Tiles(MyPos[1] + 3) != null) { // Check previous Tile
+							if(board.GetColumn(MyPos[0] - 4).GetComponent<Column>().Tiles(MyPos[1] + 4) != null) { // Northeast
+								if(!board.GetColumn(MyPos[0] - 4).GetComponent<Column>().Tiles(MyPos[1] + 4).GetComponent<Tile>().GetState()) { // Check if Unoccupied
+									board.GetColumn(MyPos[0] - 4).GetComponent<Column>().Tiles(MyPos[1] + 4).GetComponent<Tile>().ChangeColor(1); // Turns into Green
+									board.GetColumn(MyPos[0] - 4).GetComponent<Column>().Tiles(MyPos[1] + 4).GetComponent<Tile>().SetisActive(true); // Can be Clicked
+								} else { // if Occupied, What side occupies it?
+									if(board.GetColumn(MyPos[0] - 4).GetComponent<Column>().Tiles(MyPos[1] + 4).GetComponent<Tile>().GetOccupant() != isWhite) { // Check if it's an Enemy
+										board.GetColumn(MyPos[0] - 4).GetComponent<Column>().Tiles(MyPos[1] + 4).GetComponent<Tile>().ChangeColor(2); // Turns into Red
+										board.GetColumn(MyPos[0] - 4).GetComponent<Column>().Tiles(MyPos[1] + 4).GetComponent<Tile>().SetisActive(true); // Can be Clicked
+									} 
+								}
+							} 
+						}
+						if(board.GetColumn(MyPos[0] - 3).GetComponent<Column>().Tiles(MyPos[1] - 3) != null) { // Check previous Tile
+							if(board.GetColumn(MyPos[0] - 4).GetComponent<Column>().Tiles(MyPos[1] - 4) != null) { // Northwest
+								if(!board.GetColumn(MyPos[0] - 4).GetComponent<Column>().Tiles(MyPos[1] - 4).GetComponent<Tile>().GetState()) { // Check if Unoccupied
+									board.GetColumn(MyPos[0] - 4).GetComponent<Column>().Tiles(MyPos[1] - 4).GetComponent<Tile>().ChangeColor(1); // Turns into Green
+									board.GetColumn(MyPos[0] - 4).GetComponent<Column>().Tiles(MyPos[1] - 4).GetComponent<Tile>().SetisActive(true); // Can be Clicked
+								} else { // if Occupied, What side occupies it?
+									if(board.GetColumn(MyPos[0] - 4).GetComponent<Column>().Tiles(MyPos[1] - 4).GetComponent<Tile>().GetOccupant() != isWhite) { // Check if it's an Enemy
+										board.GetColumn(MyPos[0] - 4).GetComponent<Column>().Tiles(MyPos[1] - 4).GetComponent<Tile>().ChangeColor(2); // Turns into Red
+										board.GetColumn(MyPos[0] - 4).GetComponent<Column>().Tiles(MyPos[1] - 4).GetComponent<Tile>().SetisActive(true); // Can be Clicked
+									} 
+								}
+							}
+						}   
+					}
+					#endregion
+					#region SE5
+					if(board.GetColumn(MyPos[0] - 5) != null) { // Check if the Right Side exist
+						if(board.GetColumn(MyPos[0] - 4).GetComponent<Column>().Tiles(MyPos[1] + 4) != null) { // Check previous Tile
+							if(board.GetColumn(MyPos[0] - 5).GetComponent<Column>().Tiles(MyPos[1] + 5) != null) { // Northeast
+								if(!board.GetColumn(MyPos[0] - 5).GetComponent<Column>().Tiles(MyPos[1] + 5).GetComponent<Tile>().GetState()) { // Check if Unoccupied
+									board.GetColumn(MyPos[0] - 5).GetComponent<Column>().Tiles(MyPos[1] + 5).GetComponent<Tile>().ChangeColor(1); // Turns into Green
+									board.GetColumn(MyPos[0] - 5).GetComponent<Column>().Tiles(MyPos[1] + 5).GetComponent<Tile>().SetisActive(true); // Can be Clicked
+								} else { // if Occupied, What side occupies it?
+									if(board.GetColumn(MyPos[0] - 5).GetComponent<Column>().Tiles(MyPos[1] + 5).GetComponent<Tile>().GetOccupant() != isWhite) { // Check if it's an Enemy
+										board.GetColumn(MyPos[0] - 5).GetComponent<Column>().Tiles(MyPos[1] + 5).GetComponent<Tile>().ChangeColor(2); // Turns into Red
+										board.GetColumn(MyPos[0] - 5).GetComponent<Column>().Tiles(MyPos[1] + 5).GetComponent<Tile>().SetisActive(true); // Can be Clicked
+									} 
+								}
+							} 
+						}
+						if(board.GetColumn(MyPos[0] - 4).GetComponent<Column>().Tiles(MyPos[1] - 4) != null) { // Check previous Tile
+							if(board.GetColumn(MyPos[0] - 5).GetComponent<Column>().Tiles(MyPos[1] - 5) != null) { // Northwest
+								if(!board.GetColumn(MyPos[0] - 5).GetComponent<Column>().Tiles(MyPos[1] - 5).GetComponent<Tile>().GetState()) { // Check if Unoccupied
+									board.GetColumn(MyPos[0] - 5).GetComponent<Column>().Tiles(MyPos[1] - 5).GetComponent<Tile>().ChangeColor(1); // Turns into Green
+									board.GetColumn(MyPos[0] - 5).GetComponent<Column>().Tiles(MyPos[1] - 5).GetComponent<Tile>().SetisActive(true); // Can be Clicked
+								} else { // if Occupied, What side occupies it?
+									if(board.GetColumn(MyPos[0] - 5).GetComponent<Column>().Tiles(MyPos[1] - 5).GetComponent<Tile>().GetOccupant() != isWhite) { // Check if it's an Enemy
+										board.GetColumn(MyPos[0] - 5).GetComponent<Column>().Tiles(MyPos[1] - 5).GetComponent<Tile>().ChangeColor(2); // Turns into Red
+										board.GetColumn(MyPos[0] - 5).GetComponent<Column>().Tiles(MyPos[1] - 5).GetComponent<Tile>().SetisActive(true); // Can be Clicked
+									} 
+								}
+							}
+						}   
+					}
+					#endregion
+					#region NE6
+					if(board.GetColumn(MyPos[0] + 6) != null) { // Check if the Right Side exist
+						if(board.GetColumn(MyPos[0] + 5).GetComponent<Column>().Tiles(MyPos[1] + 5) != null) { // Check previous Tile
+							if(board.GetColumn(MyPos[0] + 6).GetComponent<Column>().Tiles(MyPos[1] + 6) != null) { // Northeast
+								if(!board.GetColumn(MyPos[0] + 6).GetComponent<Column>().Tiles(MyPos[1] + 6).GetComponent<Tile>().GetState()) { // Check if Unoccupied
+									board.GetColumn(MyPos[0] + 6).GetComponent<Column>().Tiles(MyPos[1] + 6).GetComponent<Tile>().ChangeColor(1); // Turns into Green
+									board.GetColumn(MyPos[0] + 6).GetComponent<Column>().Tiles(MyPos[1] + 6).GetComponent<Tile>().SetisActive(true); // Can be Clicked
+								} else { // if Occupied, What side occupies it?
+									if(board.GetColumn(MyPos[0] + 6).GetComponent<Column>().Tiles(MyPos[1] + 6).GetComponent<Tile>().GetOccupant() != isWhite) { // Check if it's an Enemy
+										board.GetColumn(MyPos[0] + 6).GetComponent<Column>().Tiles(MyPos[1] + 6).GetComponent<Tile>().ChangeColor(2); // Turns into Red
+										board.GetColumn(MyPos[0] + 6).GetComponent<Column>().Tiles(MyPos[1] + 6).GetComponent<Tile>().SetisActive(true); // Can be Clicked
+									} 
+								}
+							} 
+						}
+						if(board.GetColumn(MyPos[0] + 5).GetComponent<Column>().Tiles(MyPos[1] - 5) != null) { // Check previous Tile
+							if(board.GetColumn(MyPos[0] + ).GetComponent<Column>().Tiles(MyPos[1] - 6) != null) { // Northwest
+								if(!board.GetColumn(MyPos[0] + 6).GetComponent<Column>().Tiles(MyPos[1] - 6).GetComponent<Tile>().GetState()) { // Check if Unoccupied
+									board.GetColumn(MyPos[0] + 6).GetComponent<Column>().Tiles(MyPos[1] - 6).GetComponent<Tile>().ChangeColor(1); // Turns into Green
+									board.GetColumn(MyPos[0] + 6).GetComponent<Column>().Tiles(MyPos[1] - 6).GetComponent<Tile>().SetisActive(true); // Can be Clicked
+								} else { // if Occupied, What side occupies it?
+									if(board.GetColumn(MyPos[0] + 6).GetComponent<Column>().Tiles(MyPos[1] - 6).GetComponent<Tile>().GetOccupant() != isWhite) { // Check if it's an Enemy
+										board.GetColumn(MyPos[0] + 6).GetComponent<Column>().Tiles(MyPos[1] - 6).GetComponent<Tile>().ChangeColor(2); // Turns into Red
+										board.GetColumn(MyPos[0] + 6).GetComponent<Column>().Tiles(MyPos[1] - 6).GetComponent<Tile>().SetisActive(true); // Can be Clicked
+									} 
+								}
+							}
+						}   
+					}
+					#endregion
+					#region NE7
+					FailCheck(failSafe.Length, failLimit);
 				}
 			#endregion
 			break;

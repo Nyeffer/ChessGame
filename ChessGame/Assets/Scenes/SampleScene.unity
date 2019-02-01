@@ -5487,8 +5487,8 @@ MonoBehaviour:
   board: {fileID: 1196295000}
   rowID: 5
   colID: 5
-  isOccupied: 0
-  byWhite: 0
+  isOccupied: 1
+  byWhite: 1
 --- !u!1001 &1383068791
 Prefab:
   m_ObjectHideFlags: 0
@@ -6259,8 +6259,8 @@ MonoBehaviour:
   board: {fileID: 1196295000}
   rowID: 3
   colID: 5
-  isOccupied: 0
-  byWhite: 0
+  isOccupied: 1
+  byWhite: 1
 --- !u!4 &1578424813 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4657186044487848, guid: cc56c85f625a1d44b8f8ee7592ca5885,
