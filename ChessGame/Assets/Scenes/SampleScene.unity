@@ -4851,8 +4851,8 @@ MonoBehaviour:
   board: {fileID: 1196295000}
   rowID: 3
   colID: 3
-  isOccupied: 0
-  byWhite: 0
+  isOccupied: 1
+  byWhite: 1
 --- !u!1 &1331589930
 GameObject:
   m_ObjectHideFlags: 0
@@ -8172,8 +8172,8 @@ MonoBehaviour:
   board: {fileID: 1196295000}
   rowID: 5
   colID: 3
-  isOccupied: 0
-  byWhite: 0
+  isOccupied: 1
+  byWhite: 1
 --- !u!1 &2063025030
 GameObject:
   m_ObjectHideFlags: 0
