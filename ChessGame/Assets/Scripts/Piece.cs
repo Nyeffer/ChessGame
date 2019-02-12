@@ -1415,6 +1415,56 @@ public class Piece : MonoBehaviour {
 							failSafe[15] = true;
 						}
 					#endregion
+					#region N7
+						if(board.GetColumn(MyPos[0]).GetComponent<Column>().Tiles(MyPos[1] + 7) != null) { // North + 1 exist?
+							if(board.GetColumn(MyPos[0]).GetComponent<Column>().Tiles(MyPos[1] + 6) != null) {
+								if(!board.GetColumn(MyPos[0]).GetComponent<Column>().Tiles(MyPos[1] + 6).GetComponent<Tile>().GetState()) { // Check Precious Tile
+									if(!moveSafe[0]) { // if the precious Tile are Occupied
+										if(board.GetColumn(MyPos[0]).GetComponent<Column>().Tiles(MyPos[1] + 7) != null) { // Northeast
+											if(!board.GetColumn(MyPos[0]).GetComponent<Column>().Tiles(MyPos[1] + 7).GetComponent<Tile>().GetState()) { // Check if Unoccupied
+												board.GetColumn(MyPos[0]).GetComponent<Column>().Tiles(MyPos[1] + 7).GetComponent<Tile>().ChangeColor(1); // Turns into Green
+												board.GetColumn(MyPos[0]).GetComponent<Column>().Tiles(MyPos[1] + 7).GetComponent<Tile>().SetisActive(true); // Can be Clicked
+											} else {
+												if(board.GetColumn(MyPos[0]).GetComponent<Column>().Tiles(MyPos[1] + 7).GetComponent<Tile>().GetOccupant() != isWhite) { // Check if it's an Enemy
+													board.GetColumn(MyPos[0]).GetComponent<Column>().Tiles(MyPos[1] + 7).GetComponent<Tile>().ChangeColor(2); // Turns into Red
+													board.GetColumn(MyPos[0]).GetComponent<Column>().Tiles(MyPos[1] + 7).GetComponent<Tile>().SetisActive(true); // Can be Clicked
+												} 
+											}
+										}
+									}
+								} else {
+									moveSafe[10] = true;
+								}
+							}
+						} else {
+							failSafe[16] = true;
+						}
+					#endregion
+					#region S7
+						if(board.GetColumn(MyPos[0]).GetComponent<Column>().Tiles(MyPos[1] - 7) != null) { // North + 1 exist?
+							if(board.GetColumn(MyPos[0]).GetComponent<Column>().Tiles(MyPos[1] - 6) != null) {
+								if(!board.GetColumn(MyPos[0]).GetComponent<Column>().Tiles(MyPos[1] - 6).GetComponent<Tile>().GetState()) { // Check Precious Tile
+									if(!moveSafe[1]) { // if the precious Tile are Occupied
+										if(board.GetColumn(MyPos[0]).GetComponent<Column>().Tiles(MyPos[1] - 7) != null) { // Northeast
+											if(!board.GetColumn(MyPos[0]).GetComponent<Column>().Tiles(MyPos[1] - 7).GetComponent<Tile>().GetState()) { // Check if Unoccupied
+												board.GetColumn(MyPos[0]).GetComponent<Column>().Tiles(MyPos[1] - 7).GetComponent<Tile>().ChangeColor(1); // Turns into Green
+												board.GetColumn(MyPos[0]).GetComponent<Column>().Tiles(MyPos[1] - 7).GetComponent<Tile>().SetisActive(true); // Can be Clicked
+											} else {
+												if(board.GetColumn(MyPos[0]).GetComponent<Column>().Tiles(MyPos[1] - 7).GetComponent<Tile>().GetOccupant() != isWhite) { // Check if it's an Enemy
+													board.GetColumn(MyPos[0]).GetComponent<Column>().Tiles(MyPos[1] - 7).GetComponent<Tile>().ChangeColor(2); // Turns into Red
+													board.GetColumn(MyPos[0]).GetComponent<Column>().Tiles(MyPos[1] - 7).GetComponent<Tile>().SetisActive(true); // Can be Clicked
+												} 
+											}
+										}
+									}
+								} else {
+									moveSafe[11] = true;
+								}
+							}
+						} else {
+							failSafe[17] = true;
+						}
+					#endregion
 					} else {
 						failSafe[0] = true;
 						failSafe[1] = true;
