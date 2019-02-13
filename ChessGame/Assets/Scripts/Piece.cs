@@ -45,6 +45,7 @@ public class Piece : MonoBehaviour {
 
 	void Update() {
 		state = board.GetState();
+		Debug.Log(state);
 		if(MyPast[0] != MyPos[0] || MyPast[1] != MyPos[1]) {
 			board.GetColumn(MyPast[0]).GetComponent<Column>().Tiles(MyPast[1]).GetComponent<Tile>().SetState(false);
 			MyPast[0] = MyPos[0];
@@ -71,19 +72,19 @@ public class Piece : MonoBehaviour {
 	}
 
 	void OnMouseDown() {
-		if(board.GetState() == 0) {
+		if(state == 0) {
 			canMove = true;
 			GetType(pieceType);
+			board.ChangeState(1); // Change it to Move
 			if(!canMove) {
 				board.ChangeState(0);
 			}
 			board.SelectPiece(this.gameObject);
 			board.SetisMoving(true);
-			
-		}
-		if(board.GetState() == 1) {
+		} else {
 			board.ChangeState(0);
-		} 
+			board.SetisMoving(false);
+		}
 	}
 
 	public bool GetisFirst() {
@@ -125,7 +126,6 @@ public class Piece : MonoBehaviour {
 			#region Pawn
 				// Pawn it's Moves
 				if(board.GetState() == 0) { // Check if your Neutral
-					board.ChangeState(1); // Change it to Move
 					if(isWhite) { // White Player
 						if(firstMove) { // Pawn could move two tiles forward
 							failSafe = new bool[15];
@@ -398,7 +398,6 @@ public class Piece : MonoBehaviour {
 			#region Knight
 				// Knight's Move
 				if(board.GetState() == 0) { // Check if your Neutral
-					board.ChangeState(1); // Change to Move
 					failSafe = new bool[20];
 					failLimit = 8;
 					if(board.GetColumn(MyPos[0] + 1) != null) {
@@ -545,7 +544,6 @@ public class Piece : MonoBehaviour {
 			#region Bishop 
 				// Bishop's Move
 				if(board.GetState() == 0) { // Check if Neutral
-					board.ChangeState(1); // Change State to Move
 					failSafe = new bool[12];
 					failLimit = 4;
 					bool[] moveSafe = new bool[24];
@@ -1196,7 +1194,6 @@ public class Piece : MonoBehaviour {
 			#region Rook
 				// Rook's Move
 				if(board.GetState() == 0) { // Check if Neutral
-					board.ChangeState(1); // Change State to Move
 					failSafe = new bool[48];
 					failLimit = 4;
 					bool[] moveSafe = new bool[24];
