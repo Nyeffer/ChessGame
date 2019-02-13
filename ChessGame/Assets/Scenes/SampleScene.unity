@@ -160,12 +160,12 @@ Prefab:
     - target: {fileID: 114505357970118128, guid: c1fa9dcea70b7f848befbf304c6e530e,
         type: 2}
       propertyPath: initCol
-      value: 0
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 114505357970118128, guid: c1fa9dcea70b7f848befbf304c6e530e,
         type: 2}
       propertyPath: initRow
-      value: 0
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1779759136232562, guid: c1fa9dcea70b7f848befbf304c6e530e, type: 2}
       propertyPath: m_Name
