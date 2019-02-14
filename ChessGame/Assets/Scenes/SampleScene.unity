@@ -2479,6 +2479,72 @@ MonoBehaviour:
   colID: 7
   isOccupied: 0
   byWhite: 0
+--- !u!1001 &602700075
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4330811465332654, guid: c1fa9dcea70b7f848befbf304c6e530e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4330811465332654, guid: c1fa9dcea70b7f848befbf304c6e530e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4330811465332654, guid: c1fa9dcea70b7f848befbf304c6e530e, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4330811465332654, guid: c1fa9dcea70b7f848befbf304c6e530e, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4330811465332654, guid: c1fa9dcea70b7f848befbf304c6e530e, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4330811465332654, guid: c1fa9dcea70b7f848befbf304c6e530e, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4330811465332654, guid: c1fa9dcea70b7f848befbf304c6e530e, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4330811465332654, guid: c1fa9dcea70b7f848befbf304c6e530e, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114505357970118128, guid: c1fa9dcea70b7f848befbf304c6e530e,
+        type: 2}
+      propertyPath: board
+      value: 
+      objectReference: {fileID: 1196295000}
+    - target: {fileID: 114505357970118128, guid: c1fa9dcea70b7f848befbf304c6e530e,
+        type: 2}
+      propertyPath: initCol
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114505357970118128, guid: c1fa9dcea70b7f848befbf304c6e530e,
+        type: 2}
+      propertyPath: initRow
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1779759136232562, guid: c1fa9dcea70b7f848befbf304c6e530e, type: 2}
+      propertyPath: m_Name
+      value: Queen
+      objectReference: {fileID: 0}
+    - target: {fileID: 114505357970118128, guid: c1fa9dcea70b7f848befbf304c6e530e,
+        type: 2}
+      propertyPath: pieceType
+      value: 5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c1fa9dcea70b7f848befbf304c6e530e, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &645186686
 GameObject:
   m_ObjectHideFlags: 0
@@ -3863,12 +3929,12 @@ Prefab:
     - target: {fileID: 114505357970118128, guid: c1fa9dcea70b7f848befbf304c6e530e,
         type: 2}
       propertyPath: initCol
-      value: 0
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 114505357970118128, guid: c1fa9dcea70b7f848befbf304c6e530e,
         type: 2}
       propertyPath: initRow
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1779759136232562, guid: c1fa9dcea70b7f848befbf304c6e530e, type: 2}
       propertyPath: m_Name

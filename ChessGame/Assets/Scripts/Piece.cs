@@ -2644,7 +2644,7 @@ public class Piece : MonoBehaviour {
 					} 
 					#endregion
 				#endregion
-				#region Horizontal
+				#region Vertical
 					#region N&S
 						if(board.GetColumn(MyPos[0]) != null) { // is the current Column Exist?
 						#region N1
@@ -3016,6 +3016,8 @@ public class Piece : MonoBehaviour {
 							failSafe[13] = true;
 						}
 					#endregion
+				#endregion
+				#region Horizontal
 				#endregion
 				FailCheck(failSafe.Length, failLimit);
 			}
