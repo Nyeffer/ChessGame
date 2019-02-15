@@ -2050,7 +2050,7 @@ Transform:
   m_GameObject: {fileID: 534669902}
   m_LocalRotation: {x: 0.5109509, y: -0, z: -0, w: 0.8596099}
   m_LocalPosition: {x: -1, y: 7.01, z: -5.98}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: -1, z: -1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -3638,7 +3638,7 @@ MonoBehaviour:
   board: {fileID: 1196295000}
   rowID: 4
   colID: 4
-  isOccupied: 0
+  isOccupied: 1
   byWhite: 0
 --- !u!1 &926687350
 GameObject:
