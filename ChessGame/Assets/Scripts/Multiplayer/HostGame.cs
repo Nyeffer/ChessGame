@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.Networking.Match;
+using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 
 public class HostGame : MonoBehaviour
@@ -91,6 +92,7 @@ public class HostGame : MonoBehaviour
         {
             Debug.LogError("Join match failed " + extendedInfo);
         }
+		SceneManager.LoadScene("Board", LoadSceneMode.Single);
     }
 
     public void OnConnected(NetworkMessage msg)
