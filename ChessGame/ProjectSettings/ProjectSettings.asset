@@ -650,9 +650,9 @@ PlayerSettings:
     UNet: 1
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
-  cloudProjectId: 1dc35644-6cbb-4c51-a697-4fc89d0e4f6c
+  cloudProjectId: 79f3ab78-e051-4b64-99e3-21174d479bd7
   projectName: ChessGame
-  organizationId: blackbureau
+  organizationId: isolgames
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
