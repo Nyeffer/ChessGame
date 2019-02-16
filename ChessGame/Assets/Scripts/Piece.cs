@@ -38,6 +38,7 @@ public class Piece : MonoBehaviour {
 	}
 
 	void Start() {
+		Debug.Log(isWhite);
 		Move(new Vector3(board.GetColumn(MyPos[0]).GetComponent<Column>().GetTile(MyPos[1]).x, 
 						gameObject.transform.position.y, 
 						board.GetColumn(MyPos[0]).GetComponent<Column>().GetTile(MyPos[1]).z));
@@ -45,7 +46,6 @@ public class Piece : MonoBehaviour {
 
 	void Update() {
 		state = board.GetState();
-		Debug.Log(state);
 		if(MyPast[0] != MyPos[0] || MyPast[1] != MyPos[1]) {
 			board.GetColumn(MyPast[0]).GetComponent<Column>().Tiles(MyPast[1]).GetComponent<Tile>().SetState(false);
 			MyPast[0] = MyPos[0];
@@ -72,22 +72,19 @@ public class Piece : MonoBehaviour {
 	}
 
 	void OnMouseDown() {
-		Debug.Log(gameObject.name);
-		if(board.GetPlayer() != isWhite) {
-			if(state == 0) {
-				canMove = true;
-				GetType(pieceType);
-				board.ChangeState(1); // Change it to Move
-				if(!canMove) {
-					board.ChangeState(0);
-				}
-				board.SelectPiece(this.gameObject);
-				board.SetisMoving(true);
-			} else {
+		if(state == 0) {
+			canMove = true;
+			GetType(pieceType);
+			board.ChangeState(1); // Change it to Move
+			if(!canMove) {
 				board.ChangeState(0);
-				board.SetisMoving(false);
 			}
-		} 
+			board.SelectPiece(this.gameObject);
+			board.SetisMoving(true);
+		} else {
+			board.ChangeState(0);
+			board.SetisMoving(false);
+		}
 	}
 
 	public bool GetisFirst() {
@@ -284,8 +281,8 @@ public class Piece : MonoBehaviour {
 								if(board.GetColumn(MyPos[0]).GetComponent<Column>().Tiles(MyPos[1] - 2) != null) {
 									if(!board.GetColumn(MyPos[0]).GetComponent<Column>().Tiles(MyPos[1] - 1).GetComponent<Tile>().GetState()) {
 										if(!board.GetColumn(MyPos[0]).GetComponent<Column>().Tiles(MyPos[1] - 2).GetComponent<Tile>().GetState()) {
-												board.GetColumn(MyPos[0]).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().ChangeColor(1);
-												board.GetColumn(MyPos[0]).GetComponent<Column>().Tiles(MyPos[1] + 2).GetComponent<Tile>().SetisActive(true); 
+												board.GetColumn(MyPos[0]).GetComponent<Column>().Tiles(MyPos[1] - 2).GetComponent<Tile>().ChangeColor(1);
+												board.GetColumn(MyPos[0]).GetComponent<Column>().Tiles(MyPos[1] - 2).GetComponent<Tile>().SetisActive(true); 
 										}else {
 											failSafe[3] = true;
 										}

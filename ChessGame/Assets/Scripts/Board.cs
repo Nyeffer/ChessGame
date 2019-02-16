@@ -8,7 +8,7 @@ public class Board : MonoBehaviour {
 	public GameObject[] col;
 	public int[] tilesID;
 	public float timeOfAction = 1.0f;
-	public Camera[] players;
+	public Camera players;
 	// Private Variables
 	private int state = 0;
 	// 0 = Neutral
@@ -29,16 +29,19 @@ public class Board : MonoBehaviour {
 
 	void Start() {
 		// Destroy(col[tilesID[0]].GetComponent<Column>().Tiles(tilesID[1]));
-		Debug.Log(PlayerPrefs.GetInt("MySide", 0));
 		if(PlayerPrefs.GetInt("MySide", 0) == 0) {
 			currentlyMoving = true;
 		} else {
 			currentlyMoving = false;
 		}
-		Debug.Log(currentlyMoving);
 	}
 
 	void Update() {
+		if(currentlyMoving) {
+			players.GetComponent<CamMovement>().GoToWhite();
+		} else {
+			players.GetComponent<CamMovement>().GoToBlack();
+		}
 		if(state == 2) {
 			if(counter / timeOfAction <= 1) {
 				counter += Time.deltaTime;
