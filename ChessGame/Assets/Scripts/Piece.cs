@@ -72,19 +72,22 @@ public class Piece : MonoBehaviour {
 	}
 
 	void OnMouseDown() {
-		if(state == 0) {
-			canMove = true;
-			GetType(pieceType);
-			board.ChangeState(1); // Change it to Move
-			if(!canMove) {
+		Debug.Log(gameObject.name);
+		if(board.GetPlayer() != isWhite) {
+			if(state == 0) {
+				canMove = true;
+				GetType(pieceType);
+				board.ChangeState(1); // Change it to Move
+				if(!canMove) {
+					board.ChangeState(0);
+				}
+				board.SelectPiece(this.gameObject);
+				board.SetisMoving(true);
+			} else {
 				board.ChangeState(0);
+				board.SetisMoving(false);
 			}
-			board.SelectPiece(this.gameObject);
-			board.SetisMoving(true);
-		} else {
-			board.ChangeState(0);
-			board.SetisMoving(false);
-		}
+		} 
 	}
 
 	public bool GetisFirst() {
@@ -3613,7 +3616,6 @@ public class Piece : MonoBehaviour {
 				#endregion
 			}
 			#endregion
-
 			break;
 			default:
 			break;

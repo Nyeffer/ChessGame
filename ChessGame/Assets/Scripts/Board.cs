@@ -8,6 +8,7 @@ public class Board : MonoBehaviour {
 	public GameObject[] col;
 	public int[] tilesID;
 	public float timeOfAction = 1.0f;
+	public Camera[] players;
 	// Private Variables
 	private int state = 0;
 	// 0 = Neutral
@@ -20,9 +21,21 @@ public class Board : MonoBehaviour {
 	private float startTime;
 	private float journeyLength;
 	private bool isMoving = false;
+	// Asking who's moving
+	// True = White
+	// False = Black
+	private bool currentlyMoving = true;
+
 
 	void Start() {
 		// Destroy(col[tilesID[0]].GetComponent<Column>().Tiles(tilesID[1]));
+		Debug.Log(PlayerPrefs.GetInt("MySide", 0));
+		if(PlayerPrefs.GetInt("MySide", 0) == 0) {
+			currentlyMoving = true;
+		} else {
+			currentlyMoving = false;
+		}
+		Debug.Log(currentlyMoving);
 	}
 
 	void Update() {
@@ -39,6 +52,11 @@ public class Board : MonoBehaviour {
 				selectedTile.GetComponent<Tile>().SetState(true);
 				counter = 0.0f;
 				ChangeState(0);
+				if(currentlyMoving) {
+					currentlyMoving = false;
+				} else {
+					currentlyMoving = true;
+				}
 			}
 		}
 	}
@@ -83,6 +101,14 @@ public class Board : MonoBehaviour {
 
 	public void SetisMoving(bool newVal) {
 		isMoving = newVal;
+	}
+
+	public bool GetPlayer() {
+		return currentlyMoving;
+	}
+
+	public void SetPlayer(bool player) {
+		currentlyMoving = player;
 	}
 
 

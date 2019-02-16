@@ -26,6 +26,9 @@ public class HostGame : MonoBehaviour
             string matchPassword = "";
 
             networkMatch.CreateMatch(matchName, matchSize, matchAdvertise, matchPassword, "", "", 0, 0, OnMatchCreate);
+			gameObject.GetComponent<Init>().IamWhite();
+			Debug.Log("White");
+			SceneManager.LoadScene("Board", LoadSceneMode.Single);
         }
 
         if (GUILayout.Button("List rooms"))
@@ -92,6 +95,7 @@ public class HostGame : MonoBehaviour
         {
             Debug.LogError("Join match failed " + extendedInfo);
         }
+		gameObject.GetComponent<Init>().IamBlack();
 		SceneManager.LoadScene("Board", LoadSceneMode.Single);
     }
 
