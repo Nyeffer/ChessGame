@@ -33,6 +33,7 @@ public class Tile : MonoBehaviour {
 
 	void OnMouseDown() {
 		if(isActive) {
+			Debug.Log(gameObject.name);
 			selectPiece = board.GetSelectedPiece();
 			SetDesiredV3(new Vector3(gameObject.transform.position.x, selectPiece.transform.position.y, gameObject.transform.position.z));
 			board.SelectTile(this.gameObject);
@@ -41,6 +42,9 @@ public class Tile : MonoBehaviour {
 			}
 			selectPiece.GetComponent<Piece>().SetID(colID, rowID);
 			board.ChangeState(2);
+		} else {
+			board.ChangeState(0);
+			board.SetisMoving(false);
 		}
 	}
 

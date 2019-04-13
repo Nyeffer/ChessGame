@@ -13,7 +13,7 @@ public class Piece : MonoBehaviour {
 	// 4 = Rock
 	// 5 = Queen
 	// 6 = King
-	public Board board; // Instance of the Board
+	
 	public int initCol = 0;
 	public int initRow = 0;
 	public bool isWhite = true;
@@ -27,36 +27,40 @@ public class Piece : MonoBehaviour {
 	private bool canMove = true;
 	private bool[] failSafe;
 	private int failLimit = 0;
+	private Board board; // Instance of the Board
 	
 	void Awake() {
+		board = GameManager.instance.GetBoard();
+	}
+
+	void Start() {
 		MyPos = new int[2];
 		MyPos[0] = initCol;
 		MyPos[1] = initRow;
 		MyPast = new int[2];
 		MyPast[0] = initCol;
 		MyPast[1] = initRow;
-	}
-
-	void Start() {
-		Debug.Log(isWhite);
 		Move(new Vector3(board.GetColumn(MyPos[0]).GetComponent<Column>().GetTile(MyPos[1]).x, 
 						gameObject.transform.position.y, 
 						board.GetColumn(MyPos[0]).GetComponent<Column>().GetTile(MyPos[1]).z));
 	}
 
 	void Update() {
-		state = board.GetState();
-		if(MyPast[0] != MyPos[0] || MyPast[1] != MyPos[1]) {
-			board.GetColumn(MyPast[0]).GetComponent<Column>().Tiles(MyPast[1]).GetComponent<Tile>().SetState(false);
-			MyPast[0] = MyPos[0];
-			MyPast[1] = MyPos[1];
-			if(isWhite) {
-				board.GetColumn(MyPast[0]).GetComponent<Column>().Tiles(MyPast[1]).GetComponent<Tile>().SetOccupant(isWhite);
-			}
-		} else {
-			board.GetColumn(MyPos[0]).GetComponent<Column>().Tiles(MyPos[1]).GetComponent<Tile>().SetState(true);
-			if(isWhite) {
-				board.GetColumn(MyPast[0]).GetComponent<Column>().Tiles(MyPast[1]).GetComponent<Tile>().SetOccupant(isWhite);
+		Debug.Log(board);
+		if(board != null) {
+			state = board.GetState();
+			if(MyPast[0] != MyPos[0] || MyPast[1] != MyPos[1]) {
+				board.GetColumn(MyPast[0]).GetComponent<Column>().Tiles(MyPast[1]).GetComponent<Tile>().SetState(false);
+				MyPast[0] = MyPos[0];
+				MyPast[1] = MyPos[1];
+				if(isWhite) {
+					board.GetColumn(MyPast[0]).GetComponent<Column>().Tiles(MyPast[1]).GetComponent<Tile>().SetOccupant(isWhite);
+				}
+			} else {
+				board.GetColumn(MyPos[0]).GetComponent<Column>().Tiles(MyPos[1]).GetComponent<Tile>().SetState(true);
+				if(isWhite) {
+					board.GetColumn(MyPast[0]).GetComponent<Column>().Tiles(MyPast[1]).GetComponent<Tile>().SetOccupant(isWhite);
+				}
 			}
 		}
 		
@@ -72,18 +76,48 @@ public class Piece : MonoBehaviour {
 	}
 
 	void OnMouseDown() {
-		if(state == 0) {
-			canMove = true;
-			GetType(pieceType);
-			board.ChangeState(1); // Change it to Move
-			if(!canMove) {
-				board.ChangeState(0);
+		if(isWhite) {
+			Debug.Log("In");
+			if(board.GetWhite() != null) {
+				Debug.Log("In - 2");
+				if(board.GetWhite().isWhite == isWhite) {
+					Debug.Log("In - 3");
+					if(state == 0) {
+						Debug.Log("In - 4");
+						canMove = true;
+						GetType(pieceType);
+						board.ChangeState(1); // Change it to Move
+						if(!canMove) {
+							Debug.Log("Hit");
+							board.ChangeState(0);
+						}
+						board.SelectPiece(this.gameObject);
+						board.SetisMoving(true);
+					} else {
+						board.ChangeState(0);
+						board.SetisMoving(false);
+					}
+				}
 			}
-			board.SelectPiece(this.gameObject);
-			board.SetisMoving(true);
 		} else {
-			board.ChangeState(0);
-			board.SetisMoving(false);
+			if(board.GetBlack() != null) {
+				if(board.GetBlack().isWhite == isWhite) {
+					if(state == 0) {
+						canMove = true;
+						GetType(pieceType);
+						board.ChangeState(1); // Change it to Move
+						if(!canMove) {
+							Debug.Log("Hit");
+							board.ChangeState(0);
+						}
+						board.SelectPiece(this.gameObject);
+						board.SetisMoving(true);
+					} else {
+						board.ChangeState(0);
+						board.SetisMoving(false);
+					}
+				}
+			}
 		}
 	}
 
@@ -117,8 +151,9 @@ public class Piece : MonoBehaviour {
 			return true;
 		}
 	}
-
-	
+	public void SetBoard(Board game) {
+		board = game;
+	}
 
 	void GetType(int myType) {
 		switch(myType) {

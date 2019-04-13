@@ -6,9 +6,12 @@ public class Board : MonoBehaviour {
 
 	// Public Varaibles
 	public GameObject[] col;
+	private Player White;
+	private Player Black;
 	public int[] tilesID;
 	public float timeOfAction = 1.0f;
 	public Camera players;
+	public Piece[] piece;
 	// Private Variables
 	private int state = 0;
 	// 0 = Neutral
@@ -26,22 +29,20 @@ public class Board : MonoBehaviour {
 	// False = Black
 	private bool currentlyMoving = true;
 
+	void Awake() {
+		piece[0].SetBoard(GetComponent<Board>());
+		piece[1].SetBoard(GetComponent<Board>());
+
+	}
 
 	void Start() {
 		// Destroy(col[tilesID[0]].GetComponent<Column>().Tiles(tilesID[1]));
-		if(PlayerPrefs.GetInt("MySide", 0) == 0) {
-			currentlyMoving = true;
-		} else {
-			currentlyMoving = false;
-		}
+		
+		
+		
 	}
 
 	void Update() {
-		if(currentlyMoving) {
-			players.GetComponent<CamMovement>().GoToWhite();
-		} else {
-			players.GetComponent<CamMovement>().GoToBlack();
-		}
 		if(state == 2) {
 			if(counter / timeOfAction <= 1) {
 				counter += Time.deltaTime;
@@ -54,11 +55,14 @@ public class Board : MonoBehaviour {
 			} else {
 				selectedTile.GetComponent<Tile>().SetState(true);
 				counter = 0.0f;
-				ChangeState(0);
 				if(currentlyMoving) {
 					currentlyMoving = false;
+					players.GetComponent<CamMovement>().GoToBlack();
+					ChangeState(0);
 				} else {
 					currentlyMoving = true;
+					players.GetComponent<CamMovement>().GoToWhite();
+					ChangeState(0);
 				}
 			}
 		}
@@ -112,6 +116,25 @@ public class Board : MonoBehaviour {
 
 	public void SetPlayer(bool player) {
 		currentlyMoving = player;
+		
+	}
+
+	public void SetWhite(Player player) {
+		
+		White = player;
+	}
+
+	public Player GetWhite() {
+		return White;
+	}
+
+	public void SetBlack(Player player) {
+		
+		Black = player;
+	}
+
+	public Player GetBlack() {
+		return Black;
 	}
 
 
